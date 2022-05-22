@@ -1,7 +1,16 @@
 body{
   background-image: url(background.svg);
-  background-size: 10%;
+  background-size: 100px;
   background-repeat: repeat;
   background-position: center;
-  back
+}
+
+.center{
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+.font{
+  
 }
