@@ -4,6 +4,6 @@ document.onreadystatechange = function() {
 
 // Start
 
-  console.log("test")
+  
   }
 }
