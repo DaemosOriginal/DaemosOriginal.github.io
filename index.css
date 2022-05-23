@@ -1,8 +1,13 @@
+/*Das generelle css der Seite*/
+
 body{
+
+/* Hintergrund kram */
   background-image: url(background.svg);
   background-size: 100px;
   background-repeat: repeat;
   background-position: center;
+
 }
 
 .center{
@@ -14,4 +19,8 @@ body{
 .font{
   font-family: Arial;
   color: white;
+}
+
+a.font {
+  
 }
