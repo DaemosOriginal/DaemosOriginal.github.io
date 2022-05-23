@@ -21,6 +21,19 @@ body{
   color: white;
 }
 
-a.font {
-  
+/* link und anker scheisse */
+a.font:link {
+  color: white;
+}
+
+a.font:visited {
+  color: #bfdfff;
+}
+
+a.font:hover {
+  color: #0080ff;
+}
+
+a.font:active {
+  color: #0080ff;
 }
