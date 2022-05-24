@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg5"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs2">
+    <marker
+       style="overflow:visible"
+       id="Arrow1Lstart"
+       refX="0.0"
+       refY="0.0"
+       orient="auto">
+      <path
+         transform="scale(0.8) translate(12.5,0)"
+         style="fill-rule:evenodd;fill:context-stroke;stroke:context-stroke;stroke-width:1.0pt"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         id="path5566" />
+    </marker>
+  </defs>
+  <g
+     id="layer1">
+    <path
+       id="path7663"
+       style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:2.56694;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers stroke fill"
+       d="m 295.54102,430.42969 -55.42579,32 v 64 l 55.42579,32 55.42578,-32 v -64 z m -24.23633,39.75976 h 20.77148 l 3.46289,3.46289 v 1.73047 h -24.24023 l -3.45703,3.45703 v -5.18554 -0.002 z m -0.004,6.92969 h 24.24024 24.24218 l 3.46289,3.46289 v 34.62305 l -3.46289,3.46289 h -20.77929 -3.46289 -3.46485 -20.76953 -0.002 -0.004 l -3.46484,-3.46289 v -34.62305 z"
+       transform="scale(0.26458333)" />
+    <path
+       id="rect916-5"
+       style="fill:#000000;fill-rule:evenodd;stroke:#ffffff;stroke-width:0.00778568;stroke-linecap:round;stroke-linejoin:round;paint-order:stroke fill markers"
+       d="m 167.24622,130.62519 -2.11667,2.11563 v 0.002 3.1688 l 2.11253,-2.11202 h 14.8146 v -1.05834 l -2.11667,-2.11614 z m -0.004,4.23436 -2.11718,2.11667 v 21.1584 l 2.11718,2.11666 h 0.004 l 5.3e-4,5.3e-4 h 12.6938 l 2.11667,-5.3e-4 h 2.11666 12.69794 l 2.11718,-2.11666 v -21.1584 l -2.11718,-2.11667 h -14.8146 z" />
+    <path
+       id="rect916"
+       style="fill-rule:evenodd;stroke:#ffffff;stroke-width:0.00778568;stroke-linecap:round;stroke-linejoin:round;paint-order:stroke fill markers"
+       d="m 228.65065,115.98517 v 0.002 l 6e-5,4.23334 1.3e-4,21.15839 2.11647,2.11704 h 12.69382 l 4.23332,-3.6e-4 12.69792,1e-4 2.11705,-2.11678 v -21.15841 l -2.11705,-2.11654 -14.81459,-1.1e-4 v 0 -2.11822 l -2.11667,-2.11629 h -12.69382 z" />
+  </g>
+</svg>
