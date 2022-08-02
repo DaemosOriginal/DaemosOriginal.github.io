@@ -51,6 +51,11 @@ img.home{
 }
 
 img.button{
-  height: 100px;
+  height:75px;
   margin: 25px;
+  transition: 0.25s;
+}
+img.button:hover{
+  height:100px;
+  transition: 0.25s;
 }
