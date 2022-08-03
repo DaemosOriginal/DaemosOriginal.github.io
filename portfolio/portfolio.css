@@ -4,9 +4,11 @@
   height: 256px;
   width: 256px;
   margin: 10px;
+  background-repeat: no-repeat;
 }
 .image:hover{
   cursor: pointer;
+  background-size: contain;
 }
 
 .imageContainer{
