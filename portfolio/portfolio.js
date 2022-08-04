@@ -1,6 +1,8 @@
 const dir = "/src/images"
 var numberOfImages = 13
 numberOfImages += 1;
+let screenWidth = screen.width;
+let screenHeight = screen.height;
 
 window.onload = function() {
   var pos = document.getElementById("layer1")

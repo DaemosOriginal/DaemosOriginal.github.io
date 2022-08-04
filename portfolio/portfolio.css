@@ -24,9 +24,12 @@
 }
 
 .bigImage{
-  height: 750px;
+  max-height: 750px;
+  max-width: 1500px;
   z-index: 100;
-  box-shadow: 0 5px 1px rgba(0,0,0,0.15)
+  display: flex;
+  position: static;
+
 }
 
 .bigImage:hover{
