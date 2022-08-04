@@ -18,3 +18,27 @@
   align-items: center;
   justify-content: center;
 }
+.layer{
+  position: absolute;
+  display: flex;
+}
+
+.bigImage{
+  height: 750px;
+  z-index: 100;
+  box-shadow: 0 5px 1px rgba(0,0,0,0.15)
+}
+
+.bigImage:hover{
+  cursor: pointer;
+}
+
+.bigLayer{
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  height: 200%;
+  width: 200%;
+  z-index: 99;
+  background: rgba(0,0,0,0.5)
+}

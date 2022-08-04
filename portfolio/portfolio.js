@@ -1,5 +1,5 @@
 const dir = "/src/images"
-var numberOfImages = 9
+var numberOfImages = 13
 numberOfImages += 1;
 
 window.onload = function() {
@@ -39,6 +39,26 @@ window.onload = function() {
       var inew = i+5
       id = id + list[inew];
     }
-    console.log(id);
+    var image = document.createElement('img');
+    image.src = "src/images/"+id+".jpg";
+    image.classList.add('bigImage');
+    image.id = "image" + id;
+
+    var bigLayer = document.createElement('div');
+    bigLayer.classList.add('bigLayer');
+    bigLayer.id = "block";
+
+    var pos = document.getElementById("layer2")
+    document.body.appendChild(bigLayer);
+    pos.appendChild(image);
+
+    document.getElementById("image" + id).addEventListener("click",myClose);
+  }
+
+  function myClose(){
+    var image = document.getElementById(this.id);
+    image.remove();
+    var bigLayer = document.getElementById("block");
+    bigLayer.remove();
   }
 }
