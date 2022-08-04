@@ -38,6 +38,10 @@ a.font:active {
   color: #0080ff;
 }
 
+a[name="LICENSE"]{
+  color: white
+}
+
 /* Home button shit */
 
 .home{
