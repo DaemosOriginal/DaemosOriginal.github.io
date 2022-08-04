@@ -63,3 +63,14 @@ img.button:hover{
   height:100px;
   transition: 0.25s;
 }
+
+footer{
+position: absolute;
+display: flex;
+bottom: 10px;
+color: white;
+z-index: 101;
+}
+a.footer{
+  color: white
+}
