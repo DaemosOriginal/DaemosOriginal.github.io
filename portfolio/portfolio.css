@@ -32,7 +32,7 @@
 
 }
 
-.bigImage:hover{
+.bigLayer:hover{
   cursor: pointer;
 }
 
@@ -43,5 +43,5 @@
   height: 200%;
   width: 200%;
   z-index: 99;
-  background: rgba(0,0,0,0.5)
+  background: rgba(0,0,0,0.75)
 }

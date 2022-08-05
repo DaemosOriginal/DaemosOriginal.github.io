@@ -44,7 +44,7 @@ window.onload = function() {
     var image = document.createElement('img');
     image.src = "src/images/"+id+".jpg";
     image.classList.add('bigImage');
-    image.id = "image" + id;
+    image.id = "image";
 
     var bigLayer = document.createElement('div');
     bigLayer.classList.add('bigLayer');
@@ -54,11 +54,11 @@ window.onload = function() {
     document.body.appendChild(bigLayer);
     pos.appendChild(image);
 
-    document.getElementById("image" + id).addEventListener("click",myClose);
+    document.getElementById("block").addEventListener("click",myClose);
   }
 
   function myClose(){
-    var image = document.getElementById(this.id);
+    var image = document.getElementById("image");
     image.remove();
     var bigLayer = document.getElementById("block");
     bigLayer.remove();
