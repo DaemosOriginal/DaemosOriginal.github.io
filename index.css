@@ -52,6 +52,7 @@ a[name="LICENSE"]{
   bottom: 0px;
 }
 img.home{
+  position: fixed;
   height: 50px;
   margin: 25px;
 }
@@ -67,7 +68,7 @@ img.button:hover{
 }
 
 footer{
-position: absolute;
+position: fixed;
 display: flex;
 bottom: 10px;
 color: white;
