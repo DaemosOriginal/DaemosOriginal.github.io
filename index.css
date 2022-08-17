@@ -66,7 +66,7 @@ img.button:hover{
   height:100px;
   transition: 0.25s;
 }
-
+/* grundlegende sachen */
 footer{
 position: fixed;
 display: flex;
@@ -74,6 +74,11 @@ bottom: 10px;
 color: white;
 z-index: 101;
 }
+
 a.footer{
   color: white
+}
+
+.box{
+  flex-wrap: wrap;
 }

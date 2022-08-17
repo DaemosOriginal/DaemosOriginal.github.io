@@ -28,10 +28,10 @@ window.onload = function() {
     label = document.getElementById("label" + i);
     label.appendChild(div);
 
-    document.getElementById("input" + i).addEventListener("click",myFunction);
+    document.getElementById("input" + i).addEventListener("click",myButton);
   }
 
-  function myFunction(){
+  function myButton(){
     var id = this.id;
     var list = id.split('');
     var length  = list.length;
@@ -47,11 +47,12 @@ window.onload = function() {
     image.id = "image";
 
     var bigLayer = document.createElement('div');
-    bigLayer.classList.add('bigLayer');
+    bigLayer.classList.add('bigLayer','center');
     bigLayer.id = "block";
 
     var pos = document.getElementById("layer2")
-    document.body.appendChild(bigLayer);
+    pos.appendChild(bigLayer);
+    var pos = document.getElementById("block")
     pos.appendChild(image);
 
     document.getElementById("block").addEventListener("click",myClose);
