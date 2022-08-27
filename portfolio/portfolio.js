@@ -1,18 +1,16 @@
-var pathList = []
-var http = new XMLHttpRequest();
-http.open("GET", "https://api.github.com/repos/daemosoriginal/daemosoriginal.github.io/contents/portfolio/src/images", false);
-http.send();
-var string = JSON.parse(http.responseText);
+const dir = "/src/images"
+var numberOfImages = 13
+numberOfImages += 1;
+let screenWidth = screen.width;
+let screenHeight = screen.height;
 
-var pathList = []
-for (file of string)[pathList.push(file.download_url)]
+window.onload = function() {
+  var pos = document.getElementById("layer1")
 
-var pos = document.getElementById("0")
-
-  for (var i = 1; i < pathList.length; i++) {
+  for (var i = 1; i < numberOfImages; i++) {
     var div = document.createElement('div');
     div.classList.add('image');
-    div.style.backgroundImage = `url(${pathList[i]})`;
+    div.style.backgroundImage = "url(src/images/"+i+".jpg)";
     div.id = i;
 
     var input = document.createElement('input')
@@ -32,44 +30,6 @@ var pos = document.getElementById("0")
 
     document.getElementById("input" + i).addEventListener("click",myButton);
   }
-
-/*function gteFilePa() {
-    var pathList = []
-    var http = new XMLHttpRequest();
-    http.open("GET", "https://api.github.com/repos/daemosoriginal/daemosoriginal.github.io/contents/portfolio/src/images", false);
-    http.send();
-    var string = http.responseText;
-
-    var pathListRaw = new Array;
-
-    var fileList = string.split('\n');
-    for (i = 0; i < fileList.length; i++) {
-        var fileinfo = fileList[i].split(' ');
-        for (ii = 0; ii < fileList.length; ii++) {
-            if (fileinfo[ii] != "") {
-                if (fileinfo[ii] == "\"download_url\":" && fileinfo[ii + 1] != "null,") {
-                    pathListRaw.push(fileinfo[ii + 1]);
-                }
-            }
-        }
-    }
-
-    var pathData;
-    var pathList = [];
-    for (i = 0; i < pathListRaw.length; i++) {
-        var dataRaw = pathListRaw[i].split("");
-        var dataLength = pathListRaw[i].split("").length;
-        dataLength -= 2;
-        pathData = "";
-        for (ii = 0; ii < dataLength; ii++) {
-            if (ii > 0) {
-                pathData += dataRaw[ii];
-            }
-        }
-        pathList.push(pathData);
-    }
-    return pathList;
-}*/
 
   function myButton(){
     var id = this.id;
@@ -104,3 +64,4 @@ var pos = document.getElementById("0")
     var bigLayer = document.getElementById("block");
     bigLayer.remove();
   }
+}
