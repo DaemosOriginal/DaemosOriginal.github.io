@@ -7,7 +7,7 @@ var string = JSON.parse(http.responseText);
 var pathList = []
 for (file of string)[pathList.push(file.download_url)]
 
-var pos = document.getElementById("0")
+var pos = document.getElementById("layer1")
 
   for (var i = 1; i < pathList.length; i++) {
     var div = document.createElement('div');
