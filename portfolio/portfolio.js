@@ -7,7 +7,9 @@ var string = JSON.parse(http.responseText);
 var pathList = []
 for (file of string)[pathList.push(file.download_url)]
 
-var pos = document.getElementById("layer1")
+console.log(pathList)
+
+/*var pos = document.getElementById("0")
 
   for (var i = 1; i < pathList.length; i++) {
     var div = document.createElement('div');
@@ -69,7 +71,7 @@ var pos = document.getElementById("layer1")
         pathList.push(pathData);
     }
     return pathList;
-}*/
+}
 
   function myButton(){
     var id = this.id;
@@ -103,4 +105,39 @@ var pos = document.getElementById("layer1")
     image.remove();
     var bigLayer = document.getElementById("block");
     bigLayer.remove();
+  } */
+
+const imageContainer = document.createElement("container");
+imageContainer.id = "imageContainer";
+imageContainer.classList.add("box","center");
+document.body.appendChild(imageContainer); 
+
+const pos = document.getElementById("imageContainer")
+
+for (var i = 0; i <= pathList.length; i++) {
+    var div = document.createElement('div');
+    div.classList.add('image');
+    div.style.backgroundImage = `url(${pathList[i]})`;
+    div.id = i;
+
+    var input = document.createElement('input')
+    input.id = "input" + i;
+    input.type = "button";
+    input.name = "input";
+    input.hidden = true;
+
+    var label = document.createElement('label')
+    label.htmlFor = "input" + i;
+    label.id = "label" + i;
+
+    pos.appendChild(input);
+    pos.appendChild(label);
+    label = document.getElementById("label" + i);
+    label.appendChild(div);
+
+    document.getElementById("input" + i).addEventListener("click",myButton);
+  }
+
+  function myButton (){
+    console.log(this.id)
   }
