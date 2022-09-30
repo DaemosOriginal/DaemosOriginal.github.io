@@ -9,7 +9,8 @@ body{
     min-height: 100px;
     background-color: #4e4e59;
     margin-left: calc(50% - 50vw);
-    border-radius: 10px;;
+    border-radius: 10px;
+    padding-block: 10px;
 }
 .center{
     display: flex;
