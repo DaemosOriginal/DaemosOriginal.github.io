@@ -16,14 +16,19 @@ class Fetch {
             {
                 if (i.download_url != null)
                 {
-                    const image = document.createElement('img');        
-                    image.src = i.download_url;
-                    widths.push(image.width / image.height*hight);
-                    console.log(`${image.width}/${image.height}*${hight}=${image.width / image.height*hight}`);
-                    pathlist.push(i.download_url);
-                    /*image.classList = 'img';
-                    document.getElementById("c1").appendChild(image);
-                    console.log(i.download_url);*/
+                    while (true)
+                    {
+                        const image = document.createElement('img');        
+                        image.src = i.download_url;
+                        widths.push(image.width / image.height*hight);
+                        console.log(`${image.width}/${image.height}*${hight}=${image.width / image.height*hight}`);
+                        pathlist.push(i.download_url);
+                        /*image.classList = 'img';
+                        document.getElementById("c1").appendChild(image);
+                        console.log(i.download_url);*/
+                        if ((image.width / image.height*hight) != NaN){break}
+                        else{console.log('Fuck')}
+                    }
                 }
             });
             
@@ -51,7 +56,7 @@ class Fetch {
                 const div = document.createElement('div');
                 div.id = `d${i1}`;
                 div.classList = 'center';
-                document.getElementById("c1").appendChild(div);
+                document.getElementById("c1")?.appendChild(div);
                 let i2 = 0;
                 while(i2 < num)
                 {   
@@ -64,7 +69,7 @@ class Fetch {
                         image.addEventListener("click",myButton);
                         image.style.maxHeight = `${hight/widthlsit[i1]*window.innerWidth*.9}px`;
                         image.style.maxWidth = '100vw'
-                        document.getElementById(`d${i1}`).appendChild(image);
+                        document.getElementById(`d${i1}`)?.appendChild(image);
                     }
                     i2 += 1;
                 }
