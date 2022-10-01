@@ -1,11 +1,11 @@
+// manchaml wichtig
 function sleep(miliseconds) {
     var currentTime = new Date().getTime();
  
     while (currentTime + miliseconds >= new Date().getTime()) {
     }
  }
-
-
+//v1
 async function f(url){
     await fetch(url)
     .then(res => res.json())
@@ -15,7 +15,6 @@ async function f(url){
         let num_;
         let widths = [];
         let pathlist = [];
-        let nan = false;
         value.forEach(i =>
         {
             if (i.download_url != null)
@@ -23,8 +22,8 @@ async function f(url){
                 const image = new Image(); 
                 image.onload = function(){sleep(10);console.log('loaded')}
                 image.src = i.download_url;
-                widths.push(image.naturalWidth / image.naturalHeight);
                 pathlist.push(i.download_url);
+                widths.push(image.naturalWidth / image.naturalHeight);
             }
         });
         num_ = Math.ceil(pathlist.length/num);
@@ -72,7 +71,97 @@ async function f(url){
         }
     });
 }
+//iamgeloader for v2
+async function loadImages(imageUrlList)
+{
+    const promiseArray = []; // create an array for promises
+    const imageArray = []; // array for the images
+    for (let imageUrl of imageUrlList) {
+        promiseArray.push(new Promise(resolve => {
+            const img = new Image();
+            img.onload = function() {
+                resolve();
+            };
+            img.src = imageUrl;
+            imageArray.push(img);
+        }));
+    }
 
+    await Promise.all(promiseArray); // wait for all the images to be loaded
+    console.log("all images loaded");
+    return imageArray;
+}
+//v2
+async function d(url){
+    await fetch(url)
+    .then(res => res.json())
+    .then(function(value)
+    {
+        let imageUrlList = [];
+        value.forEach(i => {
+            if (i.download_url != null){
+                imageUrlList.push(i.download_url);
+            }
+        
+            
+        });
+        let widths = [];
+        loadImages(imageUrlList).then((value)=>{
+            value.forEach(i => {
+                widths.push(i.naturalWidth/i.naturalHeight);
+            });
+            const num = 5;
+            let num_;
+            num_ = Math.ceil(widths.length/num);
+            let widthLsit = [];
+
+            let i1 = 0;
+            while(i1 < num_)
+            {
+                let width = 0;
+
+                let i2 = 0;
+                while(i2 < num)
+                {
+                    if((i2+i1*num) < widths.length)
+                    {
+                        width += widths[i2+i1*num];
+                    }
+                    i2 += 1;
+                }
+                widthLsit.push(width);
+                i1 += 1;
+            }
+
+            i1 = 0;
+            while(i1 < num_)
+            {
+                const div = document.createElement('div');
+                div.id = `d${i1}`;
+                div.classList = 'center';
+                document.getElementById("c1")?.appendChild(div)
+
+                let i2 = 0;
+                while(i2 < num)
+                {
+                    if((i2+i1*num) < widths.length)
+                    {
+                        const image = value[i2+i1*num] 
+                        image.classList = 'img';
+                        image.id = 'img';
+                        image.style.maxHeight = `${1/widthLsit[i1]*window.innerWidth*.9}px`;
+                        image.style.maxWidth = '100vw'
+                        image.addEventListener("click",myButton);
+                        document.getElementById(`d${i1}`)?.appendChild(image);
+                    }
+                    i2 += 1;
+                }
+                i1 += 1;
+            }
+        });
+    });
+}
+// -> clicklogick für v1 und v2
 function myButton(){
     console.log(this.src);
     const layer = document.createElement('div');
@@ -93,4 +182,4 @@ function myLayer(){
 
 }
 
-f('https://api.github.com/repos/daemosoriginal/daemosoriginal.github.io/contents/portfolio/src/images');
+d('https://api.github.com/repos/daemosoriginal/daemosoriginal.github.io/contents/portfolio/src/images');
