@@ -92,7 +92,7 @@ async function loadImages(imageUrlList)
     return imageArray;
 }
 //v2
-async function d(url){
+async function d(url,num, scale){
     await fetch(url)
     .then(res => res.json())
     .then(function(value)
@@ -110,7 +110,6 @@ async function d(url){
             value.forEach(i => {
                 widths.push(i.naturalWidth/i.naturalHeight);
             });
-            const num = 5;
             let num_;
             num_ = Math.ceil(widths.length/num);
             let widthLsit = [];
@@ -138,7 +137,7 @@ async function d(url){
             {
                 const div = document.createElement('div');
                 div.id = `d${i1}`;
-                div.classList = 'center';
+                div.classList = 'center container';
                 document.getElementById("c1")?.appendChild(div)
 
                 let i2 = 0;
@@ -149,7 +148,7 @@ async function d(url){
                         const image = value[i2+i1*num] 
                         image.classList = 'img';
                         image.id = 'img';
-                        image.style.maxHeight = `${1/widthLsit[i1]*window.innerWidth*.9}px`;
+                        image.style.maxHeight = `${1/widthLsit[i1]*window.innerWidth*scale}px`;
                         image.style.maxWidth = '100vw'
                         image.addEventListener("click",myButton);
                         document.getElementById(`d${i1}`)?.appendChild(image);
@@ -182,4 +181,13 @@ function myLayer(){
 
 }
 
-d('https://api.github.com/repos/daemosoriginal/daemosoriginal.github.io/contents/portfolio/src/images');
+
+// zum groben unterscheiden zwishcen handy und pc
+if(window.innerHeight < window.innerWidth)
+{
+    d('https://api.github.com/repos/daemosoriginal/daemosoriginal.github.io/contents/portfolio/src/images',5, .9);
+}
+else
+{
+    d('https://api.github.com/repos/daemosoriginal/daemosoriginal.github.io/contents/portfolio/src/images',1, .9);
+}
