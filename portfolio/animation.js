@@ -11,7 +11,5 @@ window.addEventListener("mousemove", (e) => {
     {
          pos = [e.clientX/window.innerWidth*scale,e.clientY/window.innerWidth*scale];
     }
-    
-    console.log(pos)
     background.style.backgroundPosition = `${pos[0]}px ${pos[1]}px`;
 });
