@@ -181,6 +181,12 @@ function myLayer(){
 
 }
 
+function getLanguage()
+{
+    const userLnag = navigator.language || navigator.userLanguage; 
+    console.log(userLnag);
+    return userLnag;
+}
 
 // zum groben unterscheiden zwishcen handy und pc
 if(window.innerHeight < window.innerWidth)
