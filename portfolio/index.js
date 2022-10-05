@@ -181,12 +181,14 @@ function myLayer(){
 
 }
 
+//die spracherkennung für unten
 function getLanguage()
 {
     const userLnag = navigator.language || navigator.userLanguage; 
     console.log(userLnag);
     return userLnag;
 }
+
 // zum groben unterscheiden zwishcen handy und pc
 if(window.innerHeight < window.innerWidth)
 {
@@ -197,11 +199,18 @@ else
     d('https://api.github.com/repos/daemosoriginal/daemosoriginal.github.io/contents/portfolio/src/images',1, .9);
 }
 
-const germanText = 'Hallo, ich bin Dämos.\nIch mache sei ca. 2020 3Dkunts mit der Software Blender.\nIch habe ebenfalls grundlegende Erfahrung mit GIMP und Inkscape .';
-
+//text anhant der spracherkennung
+// bekommt den text aus den html dokument.
 if (getLanguage() == 'de')
 {
-    document.getElementById('beschreibung').innerHTML = germanText;
+    let text = '';
+    document.getElementById('beschreibung').innerHTML.split('\\n').forEach(e => {
+        if (e != '')
+        {   
+            text +=(e+'<br>');
+        }
+        document.getElementById('beschreibung').innerHTML = '<p>'+text+'</p>';
+    });
 }
 else
 {
