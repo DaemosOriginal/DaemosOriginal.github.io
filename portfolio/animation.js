@@ -1,3 +1,11 @@
+function sleep(miliseconds) {
+     var currentTime = new Date().getTime();
+  
+     while (currentTime + miliseconds >= new Date().getTime()) {
+     }
+  }
+
+
 const background = document.getElementById('background');
 const scale = 250;
 
@@ -11,5 +19,20 @@ window.addEventListener("mousemove", (e) => {
     {
          pos = [e.clientX/window.innerWidth*scale,e.clientY/window.innerWidth*scale];
     }
+
     background.style.backgroundPosition = `${-pos[0]}px ${-pos[1]}px`;
 });
+
+function tab (tabId, c,id)
+{
+     document.getElementById(tabId)?.addEventListener('click',(e) =>{
+          document.getElementById(id).classList = c;
+     })
+}
+
+document.getElementById('about').classList = 'removed';
+
+tab('tabA', 'removed','art');
+tab('tabB', '','art');
+tab('tabA', '','about');
+tab('tabB', 'removed','about');

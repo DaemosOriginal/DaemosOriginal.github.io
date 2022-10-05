@@ -5,17 +5,50 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=, initial-scale=1.0">
 
-    <link rel="stylesheet" href="master.css">
+    <link rel="stylesheet" href="master.scss">
     <link rel="stylesheet" href="animation.css">
-    <script type="text/javascript" src="index.js" defer></script>
-    <script type="text/javascript" src="animation.js" defer></script>
+    <script type="text/javascript" src="index.ts" defer></script>
+    <script type="text/javascript" src="animation.ts" defer></script>
 
     <title>Portfolio</title>
 </head>
+
 <body>
     <div id="background" class="background">
+        
         <div class="center"><h1 class="head">Portfolio</h1></div>
-        <div class="container " id="c1" ></div>
+
+        <div class="container center" id="head">
+            <div id="bar" class="tab">
+                <div id="tabA" class="tabText">
+                    About
+                </div>
+                <div id="tabB" class="tabText">
+                    Art
+                </div>
+            </div>
+        </div>
+
+        <div id="art">
+                <div class="container " id="c1" ></div>
+        </div>
+
+        <div id="about">
+            <div class="container center" id="c2">
+                <div id="container" class="container">
+                    <div class="center"><h2>About / Contact</h2></div>
+                    <ul>
+                        <h3>About</h3>
+                        <li><p>since ca. 2020 experience with blender </p></li>
+                        <li><p>*needs to be expanded.*</p></li>
+                    </ul>
+                    <ul style="margin-top:50px;">
+                        <h3>Contact</h3>
+                        <li><p>E-mail: <a href="mailto:daemos.original@gmail.com" class="mail">daemos.original@gmail.com</a></p></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
     
 </body>
