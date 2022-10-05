@@ -6,9 +6,9 @@
         rgba(255, 255, 255, 0.1) 9%,
         transparent 9%
     );
-    /*background-position: 0% 0%;*/
     background-size: clamp(10px,12vmin,50px) clamp(10px,12vmin,50px);
-
+    margin: 0;
+    overflow-x: hidden;
     left: 0px;
     top: 0px;
     z-index: -1;
