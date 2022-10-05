@@ -172,13 +172,16 @@ function myButton(){
     img.src = this.src;
     img.id = 'layer_img';
     img.classList = 'layer';
-    document.getElementById('layer')?.appendChild(img);
+    document.getElementById('layer').appendChild(img);
+    // fix scrolling wärend des großen bildes 
+    document.body.style.overflow = 'hidden';
 }
 
 function myLayer(){
     document.getElementById(this.id)?.remove();
     document.getElementById('layer_img')?.remove();
-
+    // fix scrolling wärend des großen bildes 
+    document.body.style.overflow = '';
 }
 
 //die spracherkennung für unten
