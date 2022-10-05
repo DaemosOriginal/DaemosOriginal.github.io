@@ -187,7 +187,6 @@ function getLanguage()
     console.log(userLnag);
     return userLnag;
 }
-
 // zum groben unterscheiden zwishcen handy und pc
 if(window.innerHeight < window.innerWidth)
 {
