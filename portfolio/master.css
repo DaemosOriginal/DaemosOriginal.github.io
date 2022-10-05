@@ -15,9 +15,10 @@ body{
 
 h1.head{
     display: flex;
-    font-size: clamp(0px, 4.2vw, 500%);
+    font-size: clamp(50px, 4.2vw, 500%);
     text-align: center;
     margin-block: 0px;
+    //margin-bottom: -20px;
     text-decoration: underline;
 }
 
