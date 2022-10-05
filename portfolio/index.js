@@ -191,3 +191,14 @@ else
 {
     d('https://api.github.com/repos/daemosoriginal/daemosoriginal.github.io/contents/portfolio/src/images',1, .9);
 }
+
+const germanText = 'Hallo, ich bin Dämos.\nIch mache sei ca. 2020 3Dkunts mit der Software Blender.\nIch habe ebenfalls grundlegende Erfahrung mit GIMP und Inkscape .';
+
+if (getLanguage() == 'de')
+{
+    document.getElementById('beschreibung').innerHTML = germanText;
+}
+else
+{
+    document.getElementById('beschreibung').innerHTML = 'Test en';
+}
