@@ -18,7 +18,6 @@ h1.head{
     font-size: clamp(0px, 4.2vw, 500%);
     text-align: center;
     margin-block: 0px;
-    margin-bottom: -20px;
     text-decoration: underline;
 }
 
