@@ -209,10 +209,20 @@ if (getLanguage() == 'de')
         {   
             text +=(e+'<br>');
         }
-        document.getElementById('beschreibung').innerHTML = '<p>'+text+'</p>';
+        
     });
+    document.getElementById('beschreibung').innerHTML = '<p>'+text+'</p>';
+    document.getElementById('description').remove();
 }
 else
 {
-    document.getElementById('beschreibung').innerHTML = 'Test en';
+    let text = '';
+    document.getElementById('description').innerHTML.split('\\n').forEach(e => {
+        if (e != '')
+        {   
+            text +=(e+'<br>');
+        }
+    });
+    document.getElementById('description').innerHTML = '<p>'+text+'</p>';
+    document.getElementById('beschreibung').remove();
 }
