@@ -133,6 +133,7 @@ a.c:active {
     margin-inline:clamp(10px, 5vw, 100vw);
     cursor: pointer;
     padding: 10px;
+    margin-top: calc(-0.75vw - 5px);
 }
 
 a.mail{
