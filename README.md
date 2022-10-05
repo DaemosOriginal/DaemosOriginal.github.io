@@ -1,5 +1,5 @@
 # DaemosOriginal.github.io
 
-my website test shit
+my website
 
 [DaemosOriginal.github.io](https://daemosoriginal.github.io/)
