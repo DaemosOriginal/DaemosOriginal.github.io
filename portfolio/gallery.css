@@ -1,0 +1,135 @@
+body{
+    z-index: 0;
+}
+
+.image{
+    display:inline;
+    margin: auto;
+    border-radius: 5px;
+    max-inline-size: 100%;
+    margin-bottom: 10px;
+}
+.gallery{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    margin: auto;
+    width: 100%;
+}
+
+img.gallery:hover{
+    outline-color: rgba(255, 255, 255, 0.2);
+    outline-offset: -100vmax;
+    outline-width: 100vmax;
+    transition-delay: 0s;
+}
+
+img.gallery{
+    transition: 0.2s;
+    transition-delay: 0.1s;
+
+    outline-width: 20px;
+    outline-color: rgba(255, 255, 255, 0);
+    outline-offset: 0px;
+    outline-style: solid;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+}
+
+#gallery{
+    width: calc(100vw - 200px);
+    margin: auto;
+    background-color: rgba(0, 0, 0, 0.25);
+    padding: 20px;
+    border-radius: 5px;
+}
+
+#div.blackLayer{
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.25);
+    top: 0px;
+    left: 0px;
+    cursor: pointer;
+}
+
+#image.blackLayer{
+    top:0%;
+    left: 0%;
+    z-index: 2;
+    width: 100vw;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 1;
+    vertical-align: middle;
+}
+
+.description{
+    padding-top: 20px;
+    margin: auto;
+}
+
+img.bigImage{
+    max-width: clamp(250px, 50vw, 100vw);
+    max-height: clamp(250px, 50vh, 100vh);
+    border-radius: 10px;
+    z-index: 3;
+    margin: auto;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+}
+
+figure.bigImage{
+    width: fit-content;
+    margin: auto;
+}
+
+#background.blackLayer{
+    width: fit-content;
+    max-width: (250px, 100%, 50vw);
+    background: linear-gradient(1080deg, rgba(45,45,51,0.75) 0%, rgba(63,63,69,1) 67%, rgba(80,80,87,1) 100%);
+    margin: auto;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 5px;
+}
+
+.details{
+    cursor: pointer;
+}
+
+img.bigerImage{
+    max-width: calc(100vw - 10px);
+    max-height: calc(100vh - 10px);
+    margin: auto;
+}
+
+div.bigerImage{
+    top: 0px;
+    left:0px;
+    position:fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.25);
+}
+
+.closeText{
+    margin-left: calc(100% - 50px);
+    transition: 0.2s;
+    padding: 5px;
+    border-radius: 5px;
+    width: fit-content;
+    margin-top: -5px;
+    text-align: center;
+    font-style: italic;
+    text-decoration-line: underline;
+}
+.closeText:hover{
+    background-color: rgba(255, 255, 255, 0.2);
+}
+

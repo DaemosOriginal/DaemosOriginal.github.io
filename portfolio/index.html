@@ -1,68 +1,55 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=, initial-scale=1.0">
-
-    <link rel="stylesheet" href="master.css">
-    <link rel="stylesheet" href="animation.css">
-    <script type="text/javascript" src="index.js" defer></script>
-    <script type="text/javascript" src="animation.js" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Portfolio</title>
+
+    <link rel="stylesheet" href="master.css">
+    <link rel="stylesheet" href="gallery.css">
+
+    <script src="image.js" defer></script>
+    <script src="master.js" defer></script>
+
 </head>
+<body>
 
-<body id="background" class="background">
-    <div class="center"><h1 class="head">Portfolio</h1></div>
+    <header>
+        <h1>Portfolio</h1>
+</header>
 
-    <div class="container center" id="head">
-        <div id="bar" class="tab">
-            <div id="tabA" class="tabText">
-                About
-            </div>
-            <div id="tabB" class="tabText">
-                Art
-            </div>
-        </div>
-    </div>
+    <main>
+        <div name = 'page' id = 'art'>
+            <section id = 'gallery'>
 
-    <div id="art">
-            <div class="container " id="c1" ></div>
-    </div>
-
-    <div id="about">
-        <div class="container center" id="c2">
-            <div id="container" class="container">
-                <div class="center"><h2>About / Contact</h2></div>
-                    <h3>About</h3>
-                    <div id="beschreibung">
-Hallo, ich bin Dämos.\n
-Ich mache seit ca. 2020 3D-kunst mit der Software Blender.\n
-Ich habe ebenfalls grundlegende Erfahrung mit GIMP und Inkscape.
-                    </div>
-                    <div id="description">
-Hi, I am Daemos.\n
-i' m doing 3D art since about 2020 with the software Blender.\n
-I also have some basic knowledge of GIMP and Inkscape.
-<<<<<<< Updated upstream
-                        </div>
-                    
-                        <h3 style="margin-top:50px;">Contact</h3>
-                        <p>E-mail: <a href="mailto:daemos.original+portfolio@gmail.com" class="mail">daemos.original@gmail.com</a></p>
+            </section>
+            <section id="galleryOverlay" style="display: none;">
+                <div name="blackLayer" id="blackLayer"  class="blackLayer">
                 </div>
-=======
-                    </div>
-                
-                    <h3 style="margin-top:50px;">Contact</h3>
-                    <p>E-mail: <a href="mailto:daemos.original@gmail.com" class="mail">daemos.original@gmail.com</a></p>
->>>>>>> Stashed changes
-            </div>
+                <div class="blackLayer" id="image">
+                    <div class="blackLayer" id="background">
+                        <p class="closeText" id="closeText">close Imgae</p>
+                        <figure class="bigImage">
+                            <img src="" alt="" class="bigImage" id="imageSrc">
+                            <figcaption id="imgCaption">
+                            </figcaption>
+                        </figure>
+                        <article id = "description" class="description">
+                            <p></p>
+                            <details id="imageDetails" title="some data about the image">
+                                <summary class="details">Image Details</summary>
+                            </details>
+                        </article>
+                    </div>            
+                </div>
+            </section>
         </div>
-    </div>
-</body>
-<footer>
-    <a href="https://github.com/DaemosOriginal" class="c">Copyright © 2022 DaemosOriginal</a> 
+</main>
+
+    <footer>
+
 </footer>
-</html>
+</body>
 </html>
