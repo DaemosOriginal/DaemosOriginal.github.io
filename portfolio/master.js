@@ -21,7 +21,7 @@ function scrollbar(time) {
 window.onload = (() => {
     background();
     footer();
-    UserAgentCHeck();
+    UserAgentCheck();
 })
 
 

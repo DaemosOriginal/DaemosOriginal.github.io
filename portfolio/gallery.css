@@ -60,6 +60,7 @@ img.gallery{
     left: 0%;
     z-index: 2;
     width: 100vw;
+    height: 100vh;
     position: fixed;
     display: flex;
     flex-direction: column;
