@@ -66,6 +66,7 @@ img.gallery{
     flex-direction: column;
     flex-shrink: 1;
     vertical-align: middle;
+    background-color: rgba(0, 0, 0, 0.2);
 }
 
 .description{

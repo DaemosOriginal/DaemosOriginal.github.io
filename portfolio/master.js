@@ -22,6 +22,9 @@ window.onload = (() => {
     background();
     footer();
     UserAgentCheck();
+    createNaveBarAndNavBarLogic();
+    OnlyDisplayMainPageViaTheNewAtrubuteSystem();
+    DoingTheApiRequestForTheTranslateNode();
 })
 
 
@@ -57,4 +60,92 @@ function UserAgentCheck(){
         alert(`Your browser probably does not support this page. Please switch to Firefox. (https://www.mozilla.org/en-US/firefox/new/) We are working on supporting other browsers as well.  `)
         window.location.href = 'https://www.mozilla.org/en-US/firefox/new/';
     }
+}
+
+function createNaveBarAndNavBarLogic(){
+    const objects = document.getElementsByClassName('nav');
+    for(const object of objects){
+        const classList = object.classList
+        let hasButton = false
+        classList.forEach(
+            e=>{
+                if (e == 'button'){
+                    hasButton = true
+                }
+            }
+        )
+        if (hasButton){
+            const inner = object.innerHTML
+            object.innerHTML = ''
+            const button = document.createElement('div')
+            button.innerHTML = inner
+            button.classList.add('nav','innerButton')
+            object.append(button)
+            object.addEventListener('click',IfSomeoneClicksOnAButtonIntheNavBarTheThingsInThisFunctionWillBeExecutetItWillOpenThePageAndCloseAllOthers)
+        }
+    }
+}
+
+function IfSomeoneClicksOnAButtonIntheNavBarTheThingsInThisFunctionWillBeExecutetItWillOpenThePageAndCloseAllOthers(){
+    const pageName = this.getAttribute('name')
+    const pageArray = document.getElementsByTagName('PAGE')
+    for(const e of pageArray){
+        if (e.id == pageName){
+            e.style.display = ''
+        }
+        else{
+            e.style.display = 'none'
+        }
+    }
+}
+
+function OnlyDisplayMainPageViaTheNewAtrubuteSystem(){
+    const pageArray = document.getElementsByTagName('PAGE');
+    for(const e of pageArray){
+        let data = e.getAttribute('--data')
+        data = data.split(' ')
+        data.forEach(value =>{
+            if(value == 'Defaultpage'){
+                const Defaultpage = e.getAttribute('Defaultpage')
+                if(Defaultpage){
+                    e.style.display = ''
+                }
+                else{
+                    e.style.display = 'none'
+                }
+            }
+            else{
+                e.style.display = 'none'
+            }
+        })
+    }
+}
+
+function DoingTheApiRequestForTheTranslateNode(){
+    let lang 
+    const nodes =document.getElementsByTagName('TRANSLATE')
+    for(const node of nodes){
+        const lngArray = node.lang.split(' ')
+        if (lngArray[1] == 'auto'){
+            lang = navigator.language || navigator.userLanguage
+        }
+        else{
+            lang = lngArray[1]
+        }
+        const text = node.innerHTML
+
+        if (lngArray[0] != lang){
+            const result = trnsalteAPI(text,lngArray[0], lang)
+            result.then(value => {
+                node.innerHTML = value
+            })
+        }
+    }
+}
+
+async function trnsalteAPI(text, origLang, newLang){
+    const res = await fetch(`https://api.mymemory.translated.net/get?q=${text}!&langpair=${origLang}|${newLang}`)
+    const json = await res.json()
+    const newText = await json.responseData.translatedText
+    return await newText    
 }

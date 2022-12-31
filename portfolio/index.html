@@ -18,10 +18,14 @@
 
     <header>
         <h1>Portfolio</h1>
+        <ul class="nav bar">
+            <li class="nav button" name="art">art</li>
+            <li class="nav button" name="about">about</li>
+        </ul>
 </header>
 
     <main>
-        <div name = 'page' id = 'art'>
+        <page id = 'art' --data="Defaultpage" Defaultpage="true">
             <section id = 'gallery'>
 
             </section>
@@ -45,7 +49,23 @@
                     </div>            
                 </div>
             </section>
-        </div>
+        </page>
+
+        <page id = 'about' --data="Defaultpage" Defaultpage="">
+            <section class="container">
+                <h2>
+                    <translate lang="de auto">Über</translate>:
+                </h2>
+                <p>
+                    <translate lang="de auto">
+                        Hallo, mein Name ist Dämos und ich bin Künstler im Bereich der 3D Kunst.
+                        Ich mache 3D-Kunst als Hobby seit circa 2019 und tue dies mit der Software Blender.
+                        Hierbei weise ich zu meist einen realistischen Stiel auf.
+                        Trotz dessen, das ich einen procedural workflow bevorzuge versuche ich mich in allen Bereichen welche Blender bietet zu verbessern.
+                    </translate>
+                </p>
+            </section>
+        </page>
 </main>
 
     <footer>
