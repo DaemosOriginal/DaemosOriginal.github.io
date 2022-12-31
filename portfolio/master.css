@@ -15,6 +15,10 @@ body{
 
     overflow-x: hidden;
     overflow-y: overlay;
+
+    padding:0px;
+    margin:0px;
+    block-size: border-box;
 }
 
 header {
@@ -69,13 +73,15 @@ li.nav.button{
 }
 
 ul.nav.bar{
-    display: inline-flex;
+    display: flex;
     gap: 10px;
     background-color: rgba(0, 0, 0, 0.25);
-    max-width: 100%;
-    padding-block: 10px;
+    width: calc(100vw - 56px);
+    margin: auto;
+    margin-block: 16px;
     border-radius: 5px;
 }
+
 div.nav.button{
     display: block;
     text-align: center;
@@ -93,4 +99,21 @@ section.container{
     border-radius: 5px;
 }
 
-.test{}
+/*   
+    display: inline-flex;
+    gap: 10px;
+    background-color: rgba(0, 0, 0, 0.25);
+    max-width: 100%;
+    padding-block: 10px;
+    border-radius: 5px;
+*/
+
+/*
+*,
+*::before,
+*::after { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+}
+*/
