@@ -80,6 +80,7 @@ ul.nav.bar{
     margin: auto;
     margin-block: 16px;
     border-radius: 5px;
+    padding-block: 8px;
 }
 
 div.nav.button{
