@@ -147,5 +147,5 @@ async function trnsalteAPI(text, origLang, newLang){
     const res = await fetch(`https://api.mymemory.translated.net/get?q=${text}!&langpair=${origLang}|${newLang}`)
     const json = await res.json()
     const newText = await json.responseData.translatedText
-    return await newText    
+    return await newText 
 }
