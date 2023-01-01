@@ -251,7 +251,7 @@ function galleryElse (objs) {
                 value =>{
                     value.style.width = ` ${value.width*scale/20}%`;
                     value.style.marginInline = `${margin/2}px`;
-                    value.classList.add('gallery', 'ms');
+                    value.classList.add('gallery');
 
                     addTitleEtc(value)
                     value.addEventListener('click', MyImageOnClick)
@@ -282,7 +282,7 @@ function galleryElse (objs) {
 
     for(let i = 0; true; i++){
         const div = document.createElement('div');
-        div.classList.add('gallery', 'ms');
+        div.classList.add('gallery');
 
         galleryArray[0].forEach(
             (e)=>{
@@ -292,6 +292,11 @@ function galleryElse (objs) {
         galleryArray.shift(0,1);
         gallery.appendChild(div);
         if (galleryArray.length == 0){break};
+    }
+
+    const nodes = document.getElementsByClassName('gallery')
+    for(const node of nodes){
+        node.classList.add('ms')
     }
 }
 
