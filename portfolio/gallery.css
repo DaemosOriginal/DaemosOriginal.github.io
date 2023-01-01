@@ -12,7 +12,7 @@ body{
 
 
 
-@supports ( -moz-appearance:none ){
+@supports( -moz-appearance:none ){
     .gallery{
         display: flex;
         flex-direction: row;
@@ -21,34 +21,44 @@ body{
         margin: auto;
         width: 100%;
     }
-  }
 
-  @supports not( -moz-appearance:none ){
-    .gallery{
-        display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        justify-content: center;
-        margin: auto;
+    img.gallery:hover{
+        outline-color: rgba(255, 255, 255, 0.2);
+        outline-offset: -100vmax;
+        outline-width: 100vmax;
+        transition-delay: 0s;
+    }
+
+    img.gallery{
+        transition: 0.2s;
+        transition-delay: 0.1s;
+    
+        outline-width: 20px;
+        outline-color: rgba(255, 255, 255, 0);
+        outline-offset: 0px;
+        outline-style: solid;
+        box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+        cursor: pointer;
     }
   }
 
-
-img.gallery:hover{
-    outline-color: rgba(255, 255, 255, 0.2);
-    outline-offset: -100vmax;
-    outline-width: 100vmax;
-    transition-delay: 0s;
+.ms.gallery{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    margin: auto;
 }
 
-img.gallery{
+img.ms.gallery:hover{
+    transition-delay: 0s;
+    filter:grayscale(1);
+}
+
+img.ms.gallery{
     transition: 0.2s;
     transition-delay: 0.1s;
 
-    outline-width: 20px;
-    outline-color: rgba(255, 255, 255, 0);
-    outline-offset: 0px;
-    outline-style: solid;
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
     cursor: pointer;
 }

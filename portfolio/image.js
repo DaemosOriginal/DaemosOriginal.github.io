@@ -249,9 +249,9 @@ function galleryElse (objs) {
 
             value.forEach( 
                 value =>{
-                    value.style.width = ` ${value.width*scale/100}%`;
+                    value.style.width = ` ${value.width*scale/20}%`;
                     value.style.marginInline = `${margin/2}px`;
-                    value.classList.add('gallery');
+                    value.classList.add('gallery', 'ms');
 
                     addTitleEtc(value)
                     value.addEventListener('click', MyImageOnClick)
@@ -282,7 +282,7 @@ function galleryElse (objs) {
 
     for(let i = 0; true; i++){
         const div = document.createElement('div');
-        div.classList.add('gallery');
+        div.classList.add('gallery', 'ms');
 
         galleryArray[0].forEach(
             (e)=>{
