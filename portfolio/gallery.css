@@ -9,14 +9,30 @@ body{
     max-inline-size: 100%;
     margin-bottom: 10px;
 }
-.gallery{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: center;
-    margin: auto;
-    width: 100%;
-}
+
+
+
+@supports ( -moz-appearance:none ){
+    .gallery{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: center;
+        margin: auto;
+        width: 100%;
+    }
+  }
+
+  @supports not( -moz-appearance:none ){
+    .gallery{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: center;
+        margin: auto;
+    }
+  }
+
 
 img.gallery:hover{
     outline-color: rgba(255, 255, 255, 0.2);

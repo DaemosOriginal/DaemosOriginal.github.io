@@ -43,7 +43,14 @@ result
         loader
         .then(
             value =>{
-                gallery(value);
+                const agend = navigator.userAgent
+                let firefoxAgent = agend.indexOf("Firefox") > -1
+                if (firefoxAgent){
+                    galleryFirefox(value);
+                }
+                else{
+                    galleryElse(value);
+                }
             }
         )
     }
@@ -68,7 +75,7 @@ async function loadImages(value){
     return imageArray
 }
 
-function gallery (objs) {
+function galleryFirefox (objs) {
     let onPhone = false
 
     if (window.innerHeight > window.innerWidth){
@@ -177,6 +184,117 @@ function gallery (objs) {
         if (galleryArray.length == 0){break};
     }
 }
+
+function galleryElse (objs) {
+    let onPhone = false
+
+    if (window.innerHeight > window.innerWidth){
+        //onPhone = true;
+    }
+
+    const height = 300;
+    const margin = 20;
+
+    const screenWidth = window.innerWidth;
+
+    let imageArray = new Array();
+    const gallery = document.getElementById('gallery');
+    const galleryArray = new Array();
+
+    for (obj of objs) {
+        const img = obj;
+        img.width = img.width/img.height*height;
+        img.classList.add('image');	 
+        imageArray.push(img);
+    }
+
+    for(let i = 0; true; i++) {
+        const length = imageArray.length;
+        let width = 0;
+        const rowArray = new Array();
+
+        for(let imgIndex = 0; imgIndex < length; imgIndex++){
+            const img = imageArray[0];
+            width += img.width;
+            if ((width > screenWidth)&&(imgIndex > 0)){break}
+            rowArray.push(img);
+            imageArray.shift(0,1);
+            if (onPhone){break}
+        }
+        if (rowArray.length >= 1){galleryArray.push(rowArray);}
+        if (length == 0){break}
+    }
+
+    for(let i = 0; i < galleryArray.length; i++){
+        if (onPhone){break}
+        const obj = galleryArray[i];
+        if ((obj.length <= 2) && (i>=1)){
+            galleryArray[i-1].push(galleryArray[i][0]);
+            galleryArray.splice(i,1);
+        }
+    }
+
+    galleryArray.forEach(
+        value =>{
+            let width = 0;
+            let anz = 0;
+            value.forEach(
+                value => { 
+                    width += value.width;
+                    anz += 1;
+                }
+            )
+            width += anz * margin; 
+            let scale = screenWidth / width;
+
+            value.forEach( 
+                value =>{
+                    value.style.width = ` ${value.width*scale/100}%`;
+                    value.style.marginInline = `${margin/2}px`;
+                    value.classList.add('gallery');
+
+                    addTitleEtc(value)
+                    value.addEventListener('click', MyImageOnClick)
+                })
+
+        } 
+    )
+
+    for (let i = 0; i < galleryArray.length; i++){
+        if (i != (galleryArray.length -1)){
+            galleryArray[i].forEach(
+                e =>{
+                    e.style.marginBottom = '10px';
+
+                    
+                }
+            )
+        }
+        for(let e = 0; e < galleryArray[i].length; e++){
+            if (e == 0){
+                galleryArray[i][e].style.marginLeft = 0;
+            }
+            else if (e == (galleryArray[i].length - 1)){
+                galleryArray[i][e].style.marginRight = 0;
+            }
+        }
+    }
+
+    for(let i = 0; true; i++){
+        const div = document.createElement('div');
+        div.classList.add('gallery');
+
+        galleryArray[0].forEach(
+            (e)=>{
+                div.appendChild(e);
+            }
+        )
+        galleryArray.shift(0,1);
+        gallery.appendChild(div);
+        if (galleryArray.length == 0){break};
+    }
+}
+
 
 
 const galleryObj = document.getElementById('gallery')

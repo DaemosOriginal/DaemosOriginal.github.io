@@ -57,8 +57,8 @@ function footer(){
 function UserAgentCheck(){
     const agend = navigator.userAgent
     if (agend.indexOf("Firefox") > -1 == false){
-        alert(`Your browser probably does not support this page. Please switch to Firefox. (https://www.mozilla.org/en-US/firefox/new/) We are working on supporting other browsers as well.  `)
-        window.location.href = 'https://www.mozilla.org/en-US/firefox/new/';
+        alert(`the web page is currently best supported by firefox. please switch to firefox for the best user experience and a fully functioning website. (we are working on fixing the issues)`)
+        //window.location.href = 'https://www.mozilla.org/en-US/firefox/new/';
     }
 }
 
