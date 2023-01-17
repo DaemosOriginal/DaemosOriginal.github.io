@@ -1,31 +1,382 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
   <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<!-- Meta hier  -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--Tab stuff-->
+    <title>UKPJ</title>
+    <link rel="icon" href="IconTab.svg" />
 
-<!-- Titel hier  -->
-    <title>Index</title>
-  <link rel="icon" href="Unknown.svg">
+    <!--style-->
+    <link rel="stylesheet" href="master.css" />
 
-<!-- Link's hier  -->
-  <link rel="stylesheet" href="index.css">
-
+    <!--js-->
+    <script src="master.js" defer=""></script>
   </head>
-  <body>
-<!--Body shite -->
+  <body data-page="menu">
+    <header></header>
+    <main>
+      <div class="container" id="menuText">
+        <div id="menuText" data-hover-over-word="">
+          <img src="logo.svg" alt="" class="logo" />
+          <div class="line">
+            <p class="word fancy" data-page-name="gallery">Gallery</p>
+            <p class="word">,</p>
+            <p class="word fancy" data-page-name="about">About</p>
+          </div>
+          <div class="line">
+            <p class="word">&</p>
+            <a href="mailto:daemos.original@gmail.com" class="word fancy"
+              >Mail</a
+            >
+          </div>
+        </div>
+      </div>
+      <script>
+        Object.values(document.querySelectorAll("#menuText")).forEach((e) => {
+          if (e.id == "menuText" && e.classList == "") {
+            const menu = e;
+            const word = document.querySelectorAll(".fancy");
+            word.forEach((word) => {
+              word.addEventListener("mouseover", () => {
+                menu.dataset.hoverOverWord = true;
+              });
+              word.addEventListener("mouseout", () => {
+                menu.dataset.hoverOverWord = false;
+              });
+            });
+          }
+        });
 
-<div class="center">
-  <h1 style="font-size: 300%; text-shadow: 1px 2.5px 2px rgba(0, 0, 0, 0.5)" class="font" >Index</h1>
-</div>
+        //adds the hover moving words effect
+        document.querySelectorAll(".fancy").forEach((e) => {
+          const inner = e.textContent;
+          const char = inner.split("");
+          e.innerText = "";
+          char.forEach((letter) => {
+            const span = document.createElement("span");
+            span.className = "letter";
+            span.innerText = letter;
+            e.appendChild(span);
+          });
+          e.addEventListener("mouseover", () => {
+            e.dataset.isHover = true;
+            if (e.dataset.isHover) {
+              Object.values(e.childNodes).forEach((child) => {
+                const number = child.offsetLeft;
+                child.style.transform = `translate(${
+                  myRandom(number + 10) * 50
+                }%,${myRandom(number + 20) * 50}%) rotate(${
+                  myRandom(number) * 45
+                }deg)`;
+              });
+            }
+          });
+          e.addEventListener("mouseout", () => {
+            e.dataset.isHover = false;
+            if (e.dataset.isHover) {
+              Object.values(e.childNodes).forEach((child) => {
+                const number = child.offsetLeft;
+                child.style.transform = ``;
+              });
+            }
+          });
+        });
 
-<a href="portfolio/index.html" class="font">
-  <img src="src/gui/Portfolio.svg" alt="" class="button">
-</a>
+        function myRandom(number) {
+          const PI = Math.PI;
+          const wave = (x) => {
+            return Math.abs(Math.round(x) - x);
+          };
+          const betterWave = (x) => {
+            return wave((Math.round(x) / PI) * 1000 + PI);
+          };
+          let newNumber = betterWave(number);
+          newNumber = newNumber * 4 - 1;
+          return newNumber;
+        }
+
+        function myClick(timer) {
+          Object.values(document.querySelectorAll("#menuText")).forEach(
+            (menu) => {
+              if (menu.classList == "") {
+                menu.style.transition = `${1}s`;
+                menu.classList.add("move");
+              } else {
+                setTimeout(() => {
+                  menu.style.display = "none";
+                }, timer * 1000);
+              }
+            }
+          );
+          return timer;
+        }
+        document
+          .querySelector('[data-page-name="gallery"]')
+          .addEventListener("click", () => {
+            document.body.dataset.page = "gallery";
+            const timer = 1;
+            myClick(timer);
+            setTimeout(() => {
+              const page = document.getElementById("gallery");
+              page.style.display = "";
+            }, timer * 1000);
+          });
+
+        document
+          .querySelector('[data-page-name="about"]')
+          .addEventListener("click", () => {
+            document.body.dataset.page = "about";
+            const timer = 1;
+            myClick(timer);
+            setTimeout(() => {
+              const page = document.getElementById("about");
+              page.style.display = "";
+            }, timer * 1000);
+          });
+      </script>
+
+      <div id="gallery" style="display: none" data-page="true">
+        <div
+          class="container"
+          id="gallery"
+          data-loaded="false"
+          style="overflow: hidden; overflow: -moz-hidden-unscrollable"
+        >
+          <p
+            style="
+              position: fixed;
+              top: 0px;
+              left: 0px;
+              margin: 50px;
+              z-index: 100;
+              text-transform: uppercase;
+              text-shadow: 0px 1px 5px black;
+            "
+            id="galleryBackButton"
+            class="backbutton"
+          >
+            back
+            <script>
+              document
+                .getElementById("galleryBackButton")
+                .addEventListener("click", () => {
+                  Object.values(document.querySelectorAll("#menuText")).forEach(
+                    (menu) => {
+                      if (menu.classList == "move") {
+                        menu.style.transition = `${1}s`;
+                        menu.classList.remove("move");
+                      } else {
+                        menu.style.display = "";
+                      }
+                    }
+                  );
+                  document.getElementById("gallery").style.display = "none";
+                });
+            </script>
+          </p>
+
+          <div
+            style="
+              position: fixed;
+              height: 100vh;
+              width: 100vw;
+              top: 0px;
+              left: 0px;
+              justify-content: center;
+              display: grid;
+            "
+          >
+            <p
+              style="
+                align-self: center;
+                text-align: center;
+
+                text-transform: uppercase;
+                font-size: 10vmin;
+                opacity: 0.2;
+                user-select: none;
+              "
+              id="galleryBackgroundText"
+            >
+              move your cursor around
+            </p>
+
+            <script>
+              const node = document.getElementById('galleryBackgroundText')
+              if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
+                node.textContent = 'drag your finger around'
+              }
+              else{
+                node.textContent = 'move your cursor around'
+              }
+            </script>
+          </div>
+
+        </div>
+      </div>
+      <script>
+        async function fetchJson(url = "") {
+          const response = await fetch(url);
+          const data = await response.json();
+          return Promise.resolve(data);
+        }
+
+        fetchJson(
+          "https://api.github.com/repos/daemosoriginal/daemosoriginal.github.io/contents/portfolio/src/images"
+        ).then((e) => {
+          let cont;
+          Object.values(document.querySelectorAll("#gallery")).forEach((e) => {
+            const select = Object.values(e.classList).includes("container");
+            if (select) {
+              cont = e;
+            }
+          });
+          let i = 0;
+          e.forEach((image) => {
+            const url = image.download_url;
+            const img = new Image();
+            img.src = url;
+            img.classList.add("gallery", "img");
+            img.dataset.index = i;
+            img.dataset.status = "";
+            img.classList.add("portfolioImage");
+            i++;
+            cont.appendChild(img);
+          });
+          cont.dataset.loaded = true;
+        });
+        let is = new Array();
+        const gallery = Object.values(document.querySelectorAll("#gallery"))
+        for (const e of gallery) {
+          const select = Object.values(e.classList).includes("container");
+          if (select) {
+            is.push(true, e)
+          }
+          else{is.push(e)}
+        }
+
+        if (is.includes(true)) {
+
+          delete is[is.indexOf(true)]
+          is = is.filter(e=>{ return e})
+          let e = is.filter(e=>{if(Object.values(e.classList).includes("container")){return e}})[0]
+          let check = is.filter(e=>{if(!Object.values(e.classList).includes("container")){return e}})[0]
+
+          const observer = new MutationObserver((entries) => {
+              const images = Object.values(
+                document.getElementsByClassName("portfolioImage")
+              );
+              let gloablIndex = 0,
+                last = { x: 0, y: 0 };
+
+              const activate = (image, x, y) => {
+                image.style.left = `${x}px`;
+                image.style.top = `${y}px`;
+                image.dataset.status = "active";
+                last = { x, y };
+              };
+              const distance = (x, y) => {
+                return Math.hypot(x - last.x, y - last.y);
+              };
+
+              window.onmousemove = (mouse) => {
+                if (
+                  (distance(mouse.clientX, mouse.clientY) > 200) && (check.style.display != 'none')
+                ) {
+                  const lead = images[gloablIndex % images.length],
+                    tail = images[(gloablIndex - 5) % images.length],
+                    before = images[(gloablIndex - 1) % images.length];
+
+                  activate(lead, mouse.clientX, mouse.clientY);
+                  if (tail) tail.dataset.status = "";
+
+                  lead.style.zIndex = (gloablIndex + 1) % images.length;
+
+                  gloablIndex++;
+
+                  if (gloablIndex % images.length == 0) {
+                    images.forEach((image) => {
+                      image.style.zIndex = 0;
+                    });
+                  }
+                }
+                else if(check.style.display == 'none'){
+                  gloablIndex = 0
+                  images.forEach(image => {image.dataset.status = ""})
+                }
+              };
+            });
+            observer.observe(e, { attributes: true });
+        }
+
+      </script>
+
+      <div id="about" style="display: none" data-page="true">
+        <div id="about">
+          <div
+          style="
+          position: absolute;
+          width: 100vw;
+          top: 0px;
+          left: 0px;
+          justify-content: center;
+          display: grid;
+        ">
+          <p 
+            data-translate="de|auto"
+            style="
+            align-self: center;
+            margin-top: 100px;
+            "
+            class="aboutText"
+          >
+            Hallo, mein Name ist Dämos und ich bin Künstler im Bereich der 3D
+            Kunst. Ich mache 3D-Kunst als Hobby seit circa 2019 und tue dies mit
+            der Software Blender. Hierbei weise ich zu meist einen realistischen
+            Stiel auf. Trotz dessen, das ich einen procedural workflow bevorzuge
+            versuche ich mich in allen Bereichen welche Blender bietet zu
+            verbessern.
+          </p>
+          </div>
+
+          <p
+          style="
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            margin: 50px;
+            z-index: 100;
+            text-transform: uppercase;
+            text-shadow: 0px 1px 5px black;
+          "
+          id="aboutBackButton"
+          class="backbutton"
+        >
+          back
+          <script>
+            document
+              .getElementById("aboutBackButton")
+              .addEventListener("click", () => {
+                Object.values(document.querySelectorAll("#menuText")).forEach(
+                  (menu) => {
+                    if (menu.classList == "move") {
+                      menu.style.transition = `${1}s`;
+                      menu.classList.remove("move");
+                    } else {
+                      menu.style.display = "";
+                    }
+                  }
+                );
+                document.getElementById("about").style.display = "none";
+              });
+          </script>
+        </p>
+
+        </div>
+      </div>
+    </main>
+    <footer></footer>
   </body>
-  <footer>
-    <a href="https://github.com/DaemosOriginal" class="footer">Copyright © 2022 DaemosOriginal</a>
-  </footer>
 </html>

@@ -1,0 +1,112 @@
+@font-face{
+    font-family: 'Nexa';
+    src: url('Nexa-Trial-Book.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal
+}
+body{
+    background-color: black;
+    color: white;
+    padding: 0px;
+    margin: 0px;
+    font-family:'Arial';
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
+.logo{
+    width: 100%;
+}
+
+#menuText.container{
+    width: max(200px,25%);
+    margin: auto;
+    margin-top: 100px;
+    overflow-x:visible;
+    overflow-y:visible;
+}
+
+.word{
+    font-size: max(100%,2vw);
+    letter-spacing: min(10px, 1vw);
+    text-align:justify;
+    text-transform:uppercase;
+    margin: 0;
+    transition: .2s;
+    transition-property: opacity;
+}
+
+.line{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-block: 38.4px;
+}
+
+#menuText:not(.container)[data-hover-over-word="true"] > * > .word:not(.fancy:hover){
+    opacity: 0.2;
+}
+#menuText.move{
+    transform: scale(2);
+    opacity: 0;
+    pointer-events: none;
+    user-select: none;
+}
+
+.fancy{
+    cursor: pointer;
+    user-select: none;
+}
+
+.letter{
+    display: inline-block;
+    transition: 0.5s;
+}
+
+#gallery.container{
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+}
+
+.gallery.img{
+    width: 50vmin;
+    position: absolute;
+    transform: translate(-50%, -50%);
+}
+
+.portfolioImage[data-status='active']{
+    display:block;
+    user-select: none;
+    pointer-events: none;
+}
+
+.portfolioImage:not([data-status='active']){
+    display: none;
+}
+
+body[data-page="gallery"]{
+    overflow: hidden;
+}
+
+.backbutton{
+    user-select: none;
+    cursor: pointer;
+}
+
+*[data-trans-text='true']{
+    opacity: 0.2;
+    font-style: italic;
+    user-select: none;
+    font-size: small;
+}
+
+.aboutText{
+    --margin: 50px;
+    max-width: 960px;
+    width: calc(max(min(960px, 100%), 200px) - (var(--margin)*2));
+    margin: var(--margin);
+}

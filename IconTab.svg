@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="135.46666mm"
+   height="135.46666mm"
+   viewBox="0 0 117.31142 135.50589"
+   version="1.1"
+   id="svg5"
+   sodipodi:docname="IconTab.svg"
+   inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview9"
+     pagecolor="#ffffff"
+     bordercolor="#999999"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="0.46093752"
+     inkscape:cx="-86.779656"
+     inkscape:cy="255.99999"
+     inkscape:window-width="1920"
+     inkscape:window-height="1057"
+     inkscape:window-x="1912"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg5" />
+  <defs
+     id="defs2">
+    <linearGradient
+       id="linearGradient2580">
+      <stop
+         style="stop-color:#b400ff;stop-opacity:1;"
+         offset="0.33999997"
+         id="stop2578" />
+      <stop
+         style="stop-color:#4900ff;stop-opacity:1;"
+         offset="0.66999999"
+         id="stop2576" />
+    </linearGradient>
+    <linearGradient
+       xlink:href="#linearGradient2580"
+       id="linearGradient2582"
+       x1="-0.020138189"
+       y1="67.752953"
+       x2="117.33167"
+       y2="67.752953"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(-0.02650141)" />
+  </defs>
+  <path
+     id="path1205-3-3"
+     style="fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.238209;stroke-linecap:round;stroke-linejoin:round;stroke-dashoffset:95;stroke-opacity:0.2;paint-order:stroke fill markers"
+     d="m 58.628996,0 -14.66903,8.469146 58.676164,33.8766 V 61.553312 H 73.298046 v 14.66904 H 117.30517 V 33.876606 Z m -7.33399,21.172876 v 84.692014 l 14.66903,8.46916 V 29.641506 Z m -36.672607,4.23458 -14.66904041,8.46915 V 101.6298 L 58.628996,135.50589 73.297526,127.03674 14.622399,93.160661 Z" />
+</svg>

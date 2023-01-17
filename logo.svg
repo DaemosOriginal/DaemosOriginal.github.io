@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="270.9332mm"
+   height="170.55742mm"
+   viewBox="0 0 270.91838 170.60681"
+   version="1.1"
+   id="svg5"
+   sodipodi:docname="Icon.svg"
+   inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)"
+   inkscape:export-filename="logo2.0.svg"
+   inkscape:export-xdpi="100.11"
+   inkscape:export-ydpi="100.11"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview9"
+     pagecolor="#ffffff"
+     bordercolor="#999999"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="0.32353195"
+     inkscape:cx="-880.90218"
+     inkscape:cy="717.08528"
+     inkscape:window-width="1920"
+     inkscape:window-height="1057"
+     inkscape:window-x="1912"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg5"
+     showguides="true" />
+  <defs
+     id="defs2">
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient11058">
+      <stop
+         style="stop-color:#b400ff;stop-opacity:1;"
+         offset="0.33000001"
+         id="stop11054" />
+      <stop
+         style="stop-color:#4900ff;stop-opacity:1;"
+         offset="0.67000002"
+         id="stop11056" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient2580">
+      <stop
+         style="stop-color:#b400ff;stop-opacity:1;"
+         offset="0.33999997"
+         id="stop2578" />
+      <stop
+         style="stop-color:#4900ff;stop-opacity:1;"
+         offset="0.66999999"
+         id="stop2576" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient2580"
+       id="linearGradient2582"
+       x1="-0.020138189"
+       y1="67.752953"
+       x2="117.33167"
+       y2="67.752953"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(76.829843)" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient11058"
+       id="linearGradient11060"
+       x1="-432.83917"
+       y1="168.94824"
+       x2="-161.82773"
+       y2="168.94824"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.92916046,0,0,0.92916047,422.58694,-19.03978)" />
+  </defs>
+  <path
+     id="path1205-3-3"
+     style="fill:url(#linearGradient2582);fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.238209;stroke-linecap:round;stroke-linejoin:round;stroke-dashoffset:95;stroke-opacity:0.2;paint-order:stroke fill markers"
+     inkscape:transform-center-x="-6.0135365e-06"
+     d="m 135.48534,0 -14.66903,8.469146 58.67616,33.8766 v 19.207566 h -29.33808 v 14.66904 h 44.00712 V 33.876606 Z m -7.33399,21.172876 v 84.692014 l 14.66903,8.46916 V 29.641506 Z m -36.672607,4.23458 -14.66904,8.46915 V 101.6298 l 58.675637,33.87609 14.66853,-8.46915 -58.675127,-33.876079 z"
+     sodipodi:nodetypes="ccccccccccccccccccccc" />
+  <text
+     xml:space="preserve"
+     style="font-size:34.3671px;line-height:1.25;font-family:impact;-inkscape-font-specification:impact;fill:url(#linearGradient11060);fill-opacity:1;stroke:none;stroke-width:0.859176;stroke-opacity:0.311304"
+     x="145.00754"
+     y="149.96371"
+     id="text10272"
+     transform="scale(0.92916052,1.0762403)"><tspan
+       sodipodi:role="line"
+       id="tspan10270"
+       style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:34.3671px;font-family:Nexa-Trial;-inkscape-font-specification:'Nexa-Trial Light';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-anchor:middle;fill:url(#linearGradient11060);fill-opacity:1;stroke:none;stroke-width:0.859176;stroke-opacity:0.311304"
+       x="145.00754"
+       y="149.96371">Unknown Projects</tspan></text>
+</svg>
