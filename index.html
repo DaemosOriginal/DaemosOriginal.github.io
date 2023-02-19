@@ -206,7 +206,7 @@
             <script>
               const node = document.getElementById('galleryBackgroundText')
               if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
-                node.textContent = 'drag your finger around'
+                node.textContent = 'tap the screen'
               }
               else{
                 node.textContent = 'move your cursor around'
@@ -307,7 +307,35 @@
                   images.forEach(image => {image.dataset.status = ""})
                 }
               };
+
+              if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
+                      window.onclick = (event)=>{
+                      const lead = images[gloablIndex % images.length],
+                        tail = images[(gloablIndex - 5) % images.length],
+                        before = images[(gloablIndex - 1) % images.length];
+
+                      activate(lead, event.x, event.y);
+                      if (tail) tail.dataset.status = "";
+
+                      lead.style.zIndex = (gloablIndex + 1) % images.length;
+
+                      gloablIndex++;
+
+                      if (gloablIndex % images.length == 0) {
+                        images.forEach((image) => {
+                          image.style.zIndex = 0;
+                        });
+                      }
+                    if(check.style.display == 'none'){
+                      gloablIndex = 0
+                      images.forEach(image => {image.dataset.status = ""})
+                    }
+                  }
+                }
             });
+
+
+
             observer.observe(e, { attributes: true });
         }
 
