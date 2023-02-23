@@ -17,6 +17,27 @@
   <body data-page="menu">
     <header></header>
     <main>
+
+      <div id="cursor">
+          <div id="blob"></div>
+          <div id="blur"></div>
+        <script>
+          const cursor = document.getElementById("blob");
+          if ((/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent))!= true){
+            document.body.onpointermove = event => {
+                const {clientX, clientY} = event;
+                cursor.animate({
+                  left: `${clientX}px`,
+                  top:`${clientY}px`
+                },{duration: 1000, fill: "forwards"});
+            }
+          }
+          else{
+            cursor.style.display = "none";
+          }
+        </script>
+      </div>
+
       <div class="container" id="menuText">
         <div id="menuText" data-hover-over-word="">
           <img src="logo.svg" alt="" class="logo" />
