@@ -37,6 +37,7 @@ a{
     margin: 0;
     transition: .2s;
     transition-property: opacity;
+    user-select: none;
 }
 
 .line{
@@ -146,7 +147,7 @@ body[data-page="gallery"]{
 
 #cursor{
     overflow: hidden;
-    position: fixed;
+    position: absolute;
     top: 50%;
     left: 50%;
     translate: -50% -50%;
@@ -177,4 +178,11 @@ body[data-page="gallery"]{
     position: absolute;
     backdrop-filter: blur(200px);
     z-index: -1;
+}
+
+.copyright{
+    position: absolute;
+    bottom: 0%;
+    left: 0%;
+    translate: 20px -50px;
 }

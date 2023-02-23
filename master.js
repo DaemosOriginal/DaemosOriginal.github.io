@@ -9,7 +9,7 @@ Object.values(document.querySelectorAll('[data-translate]')).forEach(node => {
     const origLang = value[0]
     let newLang
     if(value[1] == 'auto'){
-        newLang = navigator.language || navigator.userLanguage
+        newLang = Intl.DateTimeFormat().resolvedOptions().locale
     }
     else{
         newLang = value[1]
@@ -34,7 +34,7 @@ async function trnsalteAPI(text, origLang, newLang){
     return await newText 
 }
 console.log(isOnMobile());
-
+footer();
 
 function isOnMobile() {
     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
@@ -43,4 +43,10 @@ function isOnMobile() {
     else{
         return false
     }
+}
+
+function footer(){
+    const footer = document.getElementsByTagName('FOOTER')[0];
+    const year = new Date().getFullYear();
+    footer.innerHTML += ` <a href="https://github.com/DaemosOriginal" target="_blank" class="copyright">Copyright © ${year} DaemosOriginal</a>`
 }
