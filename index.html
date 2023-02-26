@@ -171,7 +171,7 @@
               top: 0px;
               left: 0px;
               margin: 50px;
-              z-index: 100;
+              z-index: 98;
               text-transform: uppercase;
               text-shadow: 0px 1px 5px black;
             "
@@ -237,129 +237,7 @@
 
         </div>
       </div>
-      <script>
-        async function fetchJson(url = "") {
-          const response = await fetch(url);
-          const data = await response.json();
-          return Promise.resolve(data);
-        }
-
-        fetchJson(
-          "https://api.github.com/repos/daemosoriginal/daemosoriginal.github.io/contents/portfolio/src/images"
-        ).then((e) => {
-          let cont;
-          Object.values(document.querySelectorAll("#gallery")).forEach((e) => {
-            const select = Object.values(e.classList).includes("container");
-            if (select) {
-              cont = e;
-            }
-          });
-          let i = 0;
-          e.forEach((image) => {
-            const url = image.download_url;
-            const img = new Image();
-            img.src = url;
-            img.classList.add("gallery", "img");
-            img.dataset.index = i;
-            img.dataset.status = "";
-            img.classList.add("portfolioImage");
-            i++;
-            cont.appendChild(img);
-          });
-          cont.dataset.loaded = true;
-        });
-        let is = new Array();
-        const gallery = Object.values(document.querySelectorAll("#gallery"))
-        for (const e of gallery) {
-          const select = Object.values(e.classList).includes("container");
-          if (select) {
-            is.push(true, e)
-          }
-          else{is.push(e)}
-        }
-
-        if (is.includes(true)) {
-
-          delete is[is.indexOf(true)]
-          is = is.filter(e=>{ return e})
-          let e = is.filter(e=>{if(Object.values(e.classList).includes("container")){return e}})[0]
-          let check = is.filter(e=>{if(!Object.values(e.classList).includes("container")){return e}})[0]
-
-          const observer = new MutationObserver((entries) => {
-              const images = Object.values(
-                document.getElementsByClassName("portfolioImage")
-              );
-              let gloablIndex = 0,
-                last = { x: 0, y: 0 };
-
-              const activate = (image, x, y) => {
-                image.style.left = `${x}px`;
-                image.style.top = `${y}px`;
-                image.dataset.status = "active";
-                last = { x, y };
-              };
-              const distance = (x, y) => {
-                return Math.hypot(x - last.x, y - last.y);
-              };
-
-              window.onmousemove = (mouse) => {
-                if (
-                  (distance(mouse.clientX, mouse.clientY) > 200) && (check.style.display != 'none')
-                ) {
-                  const lead = images[gloablIndex % images.length],
-                    tail = images[(gloablIndex - 5) % images.length],
-                    before = images[(gloablIndex - 1) % images.length];
-
-                  activate(lead, mouse.clientX, mouse.clientY);
-                  if (tail) tail.dataset.status = "";
-
-                  lead.style.zIndex = (gloablIndex + 1) % images.length;
-
-                  gloablIndex++;
-
-                  if (gloablIndex % images.length == 0) {
-                    images.forEach((image) => {
-                      image.style.zIndex = 0;
-                    });
-                  }
-                }
-                else if(check.style.display == 'none'){
-                  gloablIndex = 0
-                  images.forEach(image => {image.dataset.status = ""})
-                }
-              };
-
-              if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
-                      window.onclick = (event)=>{
-                      const lead = images[gloablIndex % images.length],
-                        tail = images[(gloablIndex - 5) % images.length],
-                        before = images[(gloablIndex - 1) % images.length];
-
-                      activate(lead, event.x, event.y);
-                      if (tail) tail.dataset.status = "";
-
-                      lead.style.zIndex = (gloablIndex + 1) % images.length;
-
-                      gloablIndex++;
-
-                      if (gloablIndex % images.length == 0) {
-                        images.forEach((image) => {
-                          image.style.zIndex = 0;
-                        });
-                      }
-                    if(check.style.display == 'none'){
-                      gloablIndex = 0
-                      images.forEach(image => {image.dataset.status = ""})
-                    }
-                  }
-                }
-            });
-
-
-
-            observer.observe(e, { attributes: true });
-        }
-
+      <script src="gallery.js">
       </script>
 
       <div id="about" style="display: none" data-page="true">
@@ -396,7 +274,7 @@
             top: 0px;
             left: 0px;
             margin: 50px;
-            z-index: 100;
+            z-index: 98;
             text-transform: uppercase;
             text-shadow: 0px 1px 5px black;
           "

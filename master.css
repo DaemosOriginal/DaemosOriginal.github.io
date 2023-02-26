@@ -80,10 +80,31 @@ a{
     transform: translate(-50%, -50%);
 }
 
+.gallery.largImage{
+    z-index: 99;
+    position: absolute;
+    max-width: calc(100vw - 100px);
+    max-height: calc(100vh - 100px);
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+}
+
+.backLayer{
+    z-index: 99;
+    position: absolute;
+    width: calc(100vw + 1px);
+    height: calc(100vh + 1px);
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    background-color: black;
+}
+
 .portfolioImage[data-status='active']{
     display:block;
     user-select: none;
-    pointer-events: none;
+    /*pointer-events: none;*/
     opacity: 1;
     transition-duration: 0s;
 }
@@ -107,6 +128,7 @@ body[data-page="gallery"]{
 .backbutton{
     user-select: none;
     cursor: pointer;
+    z-index: 98;
 }
 
 *[data-trans-text='true']{
@@ -187,3 +209,4 @@ body[data-page="gallery"]{
     translate: 20px -50px;
     z-index: 100;
 }
+

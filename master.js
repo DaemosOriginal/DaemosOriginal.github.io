@@ -51,3 +51,4 @@ function footer(){
     const year = new Date().getFullYear();
     footer.innerHTML += ` <a href="https://github.com/DaemosOriginal" target="_blank" class="copyright">Copyright © ${year} DaemosOriginal</a>`
 }
+
