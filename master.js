@@ -52,9 +52,16 @@ function isOnMobile() {
 function footer(){
     const footer = document.getElementsByTagName('FOOTER')[0];
     const year = new Date().getFullYear();
-    let lang = new Intl.DateTimeFormat().resolvedOptions().locale
 
-    footer.innerHTML += `<a href="https://github.com/DaemosOriginal" target="_blank" class="copyright">Copyright © ${year} DaemosOriginal</a>`
+    let lang = new Intl.DateTimeFormat().resolvedOptions().locale
+    if (lang.length < 4){
+        lang = `${lang}-${new Intl.Locale(lang).region}`
+        
+    }
+
+    footer.innerHTML += `<a href="https://github.com/DaemosOriginal" target="_blank" class="copyright">Copyright © ${year} DaemosOriginal
+    <br> ${lang}
+    </a>`
 }
 
 Object.values(document.querySelectorAll("#backButton")).forEach(node => {
