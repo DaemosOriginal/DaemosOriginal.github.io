@@ -9,8 +9,10 @@ Object.values(document.querySelectorAll('[data-translate]')).forEach(node => {
     const origLang = value[0]
     let newLang
     if(value[1] == 'auto'){
-        newLang = Intl.DateTimeFormat().resolvedOptions().locale
-        console.log(Intl.DateTimeFormat().resolvedOptions().locale)
+        newLang = new Intl.DateTimeFormat().resolvedOptions().locale
+        if (newLang.length < 4){
+            newLang = new Intl.DateTimeFormat(`${newLang}-XX`).resolvedOptions().locale
+        }
     }
     else{
         newLang = value[1]
