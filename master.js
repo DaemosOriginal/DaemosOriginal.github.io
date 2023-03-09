@@ -6,17 +6,21 @@ Object.values(document.querySelectorAll('[data-translate]')).forEach(node => {
     let value = new String()
     value += node.dataset.translate
     value = value.split('|')
-    const origLang = value[0]
+    let origLang = value[0]
     let newLang
     if(value[1] == 'auto'){
         newLang = new Intl.DateTimeFormat().resolvedOptions().locale
-        if (newLang.length < 4){
+        /*if (newLang.length < 4){
             newLang = `${newLang}-${new Intl.Locale(newLang).region}`
             
-        }
+        }*/
     }
     else{
         newLang = value[1]
+    }
+
+    if(isOnMobile()){
+        origLang = origLang.split('-')[0]
     }
 
     if(origLang != newLang){
@@ -29,6 +33,7 @@ Object.values(document.querySelectorAll('[data-translate]')).forEach(node => {
             node.appendChild(translationNote)
         })
     }
+
 })
 
 async function trnsalteAPI(text, origLang, newLang){
@@ -53,15 +58,8 @@ function footer(){
     const footer = document.getElementsByTagName('FOOTER')[0];
     const year = new Date().getFullYear();
 
-    let lang = new Intl.DateTimeFormat().resolvedOptions().locale
-    if (lang.length < 4){
-        lang = `${lang}-${new Intl.Locale(lang).region}`
-        
-    }
 
-    footer.innerHTML += `<a href="https://github.com/DaemosOriginal" target="_blank" class="copyright">Copyright © ${year} DaemosOriginal
-    <br> ${lang}
-    </a>`
+    footer.innerHTML += `<a href="https://github.com/DaemosOriginal" target="_blank" class="copyright">Copyright © ${year} DaemosOriginal</a>`
 }
 
 Object.values(document.querySelectorAll("#backButton")).forEach(node => {
