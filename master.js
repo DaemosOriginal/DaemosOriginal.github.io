@@ -11,6 +11,10 @@ Object.values(document.querySelectorAll('[data-translate]')).forEach(node => {
     if(value[1] == 'auto'){
         newLang = new Intl.DateTimeFormat().resolvedOptions().locale
         if (newLang.length < 4){
+            newLang = `${newLang}-${new Intl.Locale(newLang).region}`
+            
+        }
+        if (newLang.length < 4){
             newLang = new Intl.DateTimeFormat(`${newLang}-XX`).resolvedOptions().locale
         }
     }
@@ -52,10 +56,8 @@ function footer(){
     const footer = document.getElementsByTagName('FOOTER')[0];
     const year = new Date().getFullYear();
     let lang = new Intl.DateTimeFormat().resolvedOptions().locale
-    if (lang.length < 4){
-        lang = new Intl.DateTimeFormat(`${lang}-XX`).resolvedOptions().locale
-    }
-    footer.innerHTML += `<a href="https://github.com/DaemosOriginal" target="_blank" class="copyright">Copyright © ${year} DaemosOriginal <br> Debugging: ${lang}</a>`
+
+    footer.innerHTML += `<a href="https://github.com/DaemosOriginal" target="_blank" class="copyright">Copyright © ${year} DaemosOriginal</a>`
 }
 
 Object.values(document.querySelectorAll("#backButton")).forEach(node => {
