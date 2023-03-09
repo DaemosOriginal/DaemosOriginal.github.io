@@ -14,9 +14,6 @@ Object.values(document.querySelectorAll('[data-translate]')).forEach(node => {
             newLang = `${newLang}-${new Intl.Locale(newLang).region}`
             
         }
-        if (newLang.length < 4){
-            newLang = new Intl.DateTimeFormat(`${newLang}-XX`).resolvedOptions().locale
-        }
     }
     else{
         newLang = value[1]
