@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de-DE">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -175,27 +175,10 @@
               text-transform: uppercase;
               text-shadow: 0px 1px 5px black;
             "
-            id="galleryBackButton"
+            id="backButton"
             class="backbutton"
           >
             back
-            <script>
-              document
-                .getElementById("galleryBackButton")
-                .addEventListener("click", () => {
-                  Object.values(document.querySelectorAll("#menuText")).forEach(
-                    (menu) => {
-                      if (menu.classList == "move") {
-                        menu.style.transition = `${1}s`;
-                        menu.classList.remove("move");
-                      } else {
-                        menu.style.display = "";
-                      }
-                    }
-                  );
-                  document.getElementById("gallery").style.display = "none";
-                });
-            </script>
           </p>
 
           <div
@@ -278,27 +261,11 @@
             text-transform: uppercase;
             text-shadow: 0px 1px 5px black;
           "
-          id="aboutBackButton"
+          id="backButton"
           class="backbutton"
         >
           back
-          <script>
-            document
-              .getElementById("aboutBackButton")
-              .addEventListener("click", () => {
-                Object.values(document.querySelectorAll("#menuText")).forEach(
-                  (menu) => {
-                    if (menu.classList == "move") {
-                      menu.style.transition = `${1}s`;
-                      menu.classList.remove("move");
-                    } else {
-                      menu.style.display = "";
-                    }
-                  }
-                );
-                document.getElementById("about").style.display = "none";
-              });
-          </script>
+
         </p>
 
         </div>

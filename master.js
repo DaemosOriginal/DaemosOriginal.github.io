@@ -49,6 +49,25 @@ function isOnMobile() {
 function footer(){
     const footer = document.getElementsByTagName('FOOTER')[0];
     const year = new Date().getFullYear();
-    footer.innerHTML += ` <a href="https://github.com/DaemosOriginal" target="_blank" class="copyright">Copyright © ${year} DaemosOriginal</a>`
+    footer.innerHTML += `<a href="https://github.com/DaemosOriginal" target="_blank" class="copyright">Copyright © ${year} DaemosOriginal | Debugging: ${Intl.DateTimeFormat().resolvedOptions().locale}</a>`
 }
 
+Object.values(document.querySelectorAll("#backButton")).forEach(node => {
+    node.addEventListener("click", () => {
+        Object.values(document.querySelectorAll("#menuText")).forEach(
+          (menu) => {
+            if (menu.classList == "move") {
+              menu.style.transition = `${1}s`;
+              menu.classList.remove("move");
+            } else {
+              menu.style.display = "";
+            }
+          }
+        );
+        Object.values(document.querySelectorAll("[data-page]")).forEach(page =>{
+            page.style.display = 'none';
+            document.body.style.display = '';
+        })
+        //document.getElementById("about").style.display = "none";
+      });
+})

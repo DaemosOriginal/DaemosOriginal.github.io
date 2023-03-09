@@ -1,3 +1,4 @@
+
 @font-face{
     font-family: 'Nexa';
     src: url('Nexa-Trial-Book.ttf') format('truetype');
@@ -30,7 +31,7 @@ a{
 }
 
 .word{
-    font-size: max(100%,2vw);
+    font-size: max(100%,2vw) !important;
     letter-spacing: min(10px, 1vw);
     text-align:justify;
     text-transform:uppercase;
@@ -206,7 +207,7 @@ body[data-page="gallery"]{
     position: absolute;
     bottom: 0%;
     left: 0%;
-    translate: 20px -50px;
+    translate: 20px -5vmin;
     z-index: 100;
 }
 

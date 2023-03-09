@@ -20,7 +20,7 @@ function getGalleryObjects(set = -1){
                 isContainer = true
             }
             if((isContainer)&&(index == 0)){galleryTmp = e}
-            if((isContainer)&&(index == 1)){galleryTmp = e}
+            if((! isContainer)&&(index == 1)){galleryTmp = e}
         }
         return(galleryTmp)
     }
@@ -120,7 +120,50 @@ const observer = new MutationObserver((entries) => {
         gallery.appendChild(bigSelf);
     }
 
-    const myShowImages = (mouse,dist) =>{
+    const myShowImagesOnPc = (mouse,dist) =>{
+        if ((distance(mouse.clientX, mouse.clientY) > dist) && (galleryConatiner.style.display != 'none')) {
+            const lead = images[gloablIndex % images.length],
+                tail = images[(gloablIndex - 5) % images.length],
+// workaround to get before without error
+                getBefore = () =>{
+                    let beforeTmp
+                    switch(images[(gloablIndex - 1) % images.length]){
+                        case undefined:
+                            beforeTmp = images[images.length + ((gloablIndex - 1) % images.length)];
+                            break;
+                        default:
+                            beforeTmp = images[(gloablIndex - 1) % images.length];
+                            break;
+                    }
+                    return beforeTmp;
+                },
+                before = getBefore();
+    
+            activate(lead, mouse.clientX, mouse.clientY);
+            if (tail) tail.dataset.status = "";
+    
+            lead.style.zIndex = (gloablIndex + 1) % images.length;
+            
+// add event to make images biger wehn clicked
+            lead.onclick = (event) => {imageOnClickPC(event)};
+// remove event from image before
+            try{before.onclick = null}catch{}
+    
+            gloablIndex++;
+    
+            if (gloablIndex % images.length == 0) {
+                images.forEach((image) => {
+                image.style.zIndex = 0;
+                });
+            }
+        }
+            else if(galleryConatiner.style.display == 'none'){
+            gloablIndex = 0
+            images.forEach(image => {image.dataset.status = ""})
+        }
+    }
+
+    const myShowImagesOnPhone = (mouse,dist) =>{
         if ((distance(mouse.clientX, mouse.clientY) > dist) && (galleryConatiner.style.display != 'none')) {
             const lead = images[gloablIndex % images.length],
                 tail = images[(gloablIndex - 5) % images.length],
@@ -165,11 +208,12 @@ const observer = new MutationObserver((entries) => {
     
     switch (isMobile()) {
         case false:
-            window.onmousemove = (mouse) => {myShowImages(mouse, 200)};
+            window.onmousemove = (mouse) => {myShowImagesOnPc(mouse, 200)};
             break;
     
         case true:
-            window.onclick = (mouse) => {myShowImages(mouse, 0)};
+            //window.onclick = (mouse) => {myShowImages(mouse, 0)};
+            window.ontouchend = (mouse) => {myShowImagesOnPhone(mouse.changedTouches[0], 0)}
             break;
         
         default:
