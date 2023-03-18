@@ -50,6 +50,8 @@ const galleryConatiner = getGalleryObjects(1);
       }
     });
 
+    // cna now exclude images by name
+
     for(let i = 0; i < e.length; i++){
         if (e[i].name.split('_').includes('!x')){
             e.splice(i,1)
