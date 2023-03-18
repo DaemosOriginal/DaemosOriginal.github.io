@@ -49,6 +49,13 @@ const galleryConatiner = getGalleryObjects(1);
         cont = e;
       }
     });
+
+    for(let i = 0; i < e.length; i++){
+        if (e[i].name.split('_').includes('!x')){
+            e.splice(i,1)
+        }
+    }
+
     let i = 0;
     e.forEach((image) => {
       const url = image.download_url;
