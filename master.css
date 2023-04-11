@@ -204,10 +204,21 @@ body[data-page="gallery"]{
 }
 
 .copyright{
-    position: absolute;
+    position: fixed;
     bottom: 0%;
     left: 0%;
     translate: 20px -5vmin;
     z-index: 100;
 }
 
+h1{
+    position: relative;
+    translate: -50% 0%;
+    left: 50%;
+    width: fit-content;
+}
+
+page>main{
+    margin-inline: 50px;
+    margin-bottom: 200px;
+}

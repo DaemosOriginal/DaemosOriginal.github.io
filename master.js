@@ -2,6 +2,7 @@ Object.values(document.querySelectorAll('[data-translate]')).forEach(node => {
     const text = node.textContent
     
     const autoText = 'This text has been automatically translated. Therefore, there may be translation errors.'
+    const errorText = 'This text is too long to be Translated with the API i use.'
 
     let value = new String()
     value += node.dataset.translate
@@ -9,7 +10,8 @@ Object.values(document.querySelectorAll('[data-translate]')).forEach(node => {
     let origLang = value[0]
     let newLang
     if(value[1] == 'auto'){
-        newLang = new Intl.DateTimeFormat().resolvedOptions().locale
+        //newLang = new Intl.DateTimeFormat().resolvedOptions().locale
+        newLang = navigator.language || navigator.userLanguage;
         /*if (newLang.length < 4){
             newLang = `${newLang}-${new Intl.Locale(newLang).region}`
             
@@ -24,14 +26,24 @@ Object.values(document.querySelectorAll('[data-translate]')).forEach(node => {
     }
 
     if(origLang != newLang){
-        trnsalteAPI(text,origLang,newLang).then(value => { 
-            node.textContent = `${value}`;
-            const translationNote = document.createElement('span')
-            translationNote.textContent = `${autoText}`
-            translationNote.dataset.transText = true
-            node.appendChild(document.createElement('br'))
-            node.appendChild(translationNote)
-        })
+        trnsalteAPI(text,origLang,newLang).then(value => {
+                if (value != "QUERY LENGTH LIMIT EXCEEDED. MAX ALLOWED QUERY : 500 CHARS"){
+                node.textContent = `${value}`;
+                const translationNote = document.createElement('span')
+                translationNote.textContent = `${autoText}`
+                translationNote.dataset.transText = true
+                node.appendChild(document.createElement('br'))
+                node.appendChild(translationNote)
+                }
+                else{
+                const translationNote = document.createElement('span')
+                translationNote.textContent = `${errorText}`
+                translationNote.dataset.transText = true
+                node.appendChild(document.createElement('br'))
+                node.appendChild(translationNote)
+                }
+            }
+        )
     }
 
 })
