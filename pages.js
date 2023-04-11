@@ -13,7 +13,6 @@ p.forEach((page) => {
 
     let head = document.createElement("header")
     let main = document.createElement("main")
-    let footer = document.createElement("footer")
 
     
 
@@ -28,7 +27,6 @@ p.forEach((page) => {
 
     page.append(head)
     page.append(main)
-    page.append(footer)
 })
 
 let buttons =  Object.values(document.querySelectorAll("[data-page]"))
