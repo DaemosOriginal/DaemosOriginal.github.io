@@ -27,6 +27,7 @@ data-title="Main"
 <ul>
     <li><p data-page="BlenderAddons">Blender Addons</p></li>
     <li><p data-page="GameIdeas">Game Ideas</p></li>
+    <li><p data-page="language">Language</p></li>
 
     <li><a href="./index.html">Back</a></li>
 </ul>
@@ -210,6 +211,105 @@ data-title="Main"
 <page data-title="ResidentEvilClone">
     <p data-page="GameIdeas">Back</p>
     <p data-translate="de|auto">keine Ahnung was ich hier reinschreiben werde, aber ich hab schon mit einer Map angefangen.</p>
+</page>
+
+<page data-title="language">
+    <p data-translate="de|auto">Ich versuche grade meine eigene Programmiersprache zu entwickeln. Mal sehen ob das was wird.</p>
+    <h2>Data types</h2>
+    <ul>
+        <li>
+            Integer
+            <ul>
+                <li>int</li>
+                <li>i</li>
+                <li>u</li>
+                <li>:8</li>
+                <li>:16</li>
+                <li>:32</li>
+                <li>:64</li>
+                <li>:128</li>
+            </ul>
+        </li>
+        <li>
+            char
+            <ul>
+                <li>char</li>
+                <li>c</li>
+                <li>byte #-> :u:8</li>
+                <li>b</li>
+            </ul>
+        </li>
+        <li>
+            float
+            <ul>
+                <li>float</li>
+                <li>f</li>
+                <li>:8</li>
+                <li>:16</li>
+                <li>:32</li>
+                <li>:64</li>
+                <li>:128</li>
+            </ul>
+        </li>
+        <li>
+            array
+            <ul>
+                <li>[type,length]</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h3>Examples</h3>
+        <code>::foo:i:8 = 12 # var named foo type integer size 8 bit value 12 aka 00001100 <br></code>
+        <code>!:foo2:u:8 = 12</code>
+        <p></p>
+        <code>::fooArray:[b;12] = ['H','e','l','l','o',' ','W','o','r','l','d','!'] <br></code>
+        <code>::fooArray2:[b;12] = "Hello World!" <br></code>
+        <code>::fooArray3:="Hello World!" # array with length of String and type byte / char</code>
+
+    <h2>Variables</h2>
+    <ul>
+        <li>!: # const</li>
+        <li>:: # var</li>
+    </ul>
+
+    <h2>Functions</h2>
+    <code>!:foo(a:i:8):i:32{...} # function with name foo and a parameter a of type integer of size 8 and a retunvalue of type integer and size 32</code>
+
+    <h2>Standard functions</h2>
+    <ul>
+        <li>print() # shows a value therminal</li>
+        <li>typeof()</li>
+    </ul>
+
+    <h3>Examples</h3>
+    <code>!:foo:="Hello World!" <br></code>
+    <code>print(${foo}) # shows the value of the variable foo in the therminal</code>
+
+    <h2>Classes</h2>
+    <code>
+        !:foo{
+            ::foo1:i:32
+            ::foo2:i:32
+
+            !:foof():f:32{
+                return self.foo1 + self.foo2
+            }
+        }
+    </code>
+    <p>---------------------------------------------</p>
+    <code>
+        !:foo{
+            ::foo1:i:32
+            ::foo2:i:32
+
+            !:foof():f:32
+        }
+
+        foo::foof():f:32{
+            return self.foo1 + self.foo2
+        }
+    </code>
 </page>
 
 <footer></footer>
