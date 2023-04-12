@@ -2,7 +2,7 @@ Object.values(document.querySelectorAll('[data-translate]')).forEach(node => {
     const text = node.textContent
     
     const autoText = 'This text has been automatically translated. Therefore, there may be translation errors.'
-    const errorText = 'This text is too long to be Translated with the API i use.'
+    const errorText = 'There is a temporary issue  with the API. [Error]:'
 
     let value = new String()
     value += node.dataset.translate
@@ -27,20 +27,21 @@ Object.values(document.querySelectorAll('[data-translate]')).forEach(node => {
 
     if(origLang != newLang){
         trnsalteAPI(text,origLang,newLang).then(value => {
-                if (value != "QUERY LENGTH LIMIT EXCEEDED. MAX ALLOWED QUERY : 500 CHARS"){
-                node.textContent = `${value}`;
-                const translationNote = document.createElement('span')
-                translationNote.textContent = `${autoText}`
-                translationNote.dataset.transText = true
-                node.appendChild(document.createElement('br'))
-                node.appendChild(translationNote)
+
+                if ((value == "QUERY LENGTH LIMIT EXCEEDED. MAX ALLOWED QUERY : 500 CHARS")||(value.search("MYMEMORY WARNING:") > -1)){
+                    const translationNote = document.createElement('span')
+                    translationNote.textContent = `${errorText} ${value}`
+                    translationNote.dataset.transText = true
+                    node.appendChild(document.createElement('br'))
+                    node.appendChild(translationNote)
                 }
                 else{
-                const translationNote = document.createElement('span')
-                translationNote.textContent = `${errorText}`
-                translationNote.dataset.transText = true
-                node.appendChild(document.createElement('br'))
-                node.appendChild(translationNote)
+                    node.textContent = `${value}`;
+                    const translationNote = document.createElement('span')
+                    translationNote.textContent = `${autoText}`
+                    translationNote.dataset.transText = true
+                    node.appendChild(document.createElement('br'))
+                    node.appendChild(translationNote)
                 }
             }
         )
