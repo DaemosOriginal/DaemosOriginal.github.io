@@ -217,10 +217,3 @@ h1{
     left: 50%;
     width: fit-content;
 }
-
-page>main{
-    margin-inline: 50px;
-    margin-bottom: 200px;
-}
-
-[data-page]{cursor: pointer;}
