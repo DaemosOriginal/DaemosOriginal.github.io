@@ -49,5 +49,44 @@ buttons.forEach(
                 )
             }
         )
+
+        // add a to change window adress anme
+
+        let a = document.createElement("a")
+        a.href = `#${button.dataset.page}`
+        a.innerHTML = button.innerHTML
+        button.innerHTML = ""
+        button.append(a)
     }
 )
+
+window.onload = () => {
+
+    // gat domain name to find starter page
+
+    let pageName = window.location.href.split(/[#]/)
+    let url = pageName.splice(0,1)
+    let domainTmp = pageName
+    pageName = ""
+    for (i in domainTmp){
+        if ((i+1) < domainTmp.length){pageName += domainTmp[i]+"#"}
+        else{pageName += domainTmp[i]}
+    }
+
+    // go to page
+
+    if((pageName != "")){
+        p.forEach(
+            (page) =>{
+                if (page.dataset.title != pageName){
+                    page.style.display = "none"
+                }
+                else{
+                    page.style.display = ""
+                    OBJ_title.innerHTML = "UKPH/" + page.dataset.title
+                    console.log("UKPH/" + page.dataset.title)
+                }
+            }
+        )
+    }
+}
