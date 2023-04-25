@@ -332,6 +332,103 @@ data-title="Main"
             return self.foo1 + self.foo2
         }
     </code>
+
+   <h3>complex data types</h3>
+<code>
+# defining a constant of type "type" which means it can now be assigned as a type
+!:Vec2:type{
+
+    # constructor for initialization
+    # definition of possible input attributes
+    self(x:f:32,y:f:32){
+
+    # define behavior based on inputs on initialization
+
+        if(x != NULL)&&(y != NULL){
+            self x = x
+            self y = y
+            self length = pow((x*x+y*y),0.5)
+        }
+    }
+
+    #define how the complex type handles the writing and reading of its simple attributes
+
+
+    case{
+
+        # what to do is someone writes to an attribute
+        write{
+            x(x){
+                    self x = x
+
+                    if(self x != NULL)&&(self y != NULL){
+                    self length = self _length(self x, self y)
+                }
+                else{return error}
+            }
+
+            y(y){
+                    self y = y
+
+                    if(self x != NULL)&&(self y != NULL){
+                    self length = self _length(self x, self y)
+                }
+                else{return error}
+            }
+            length(length){
+                if(self x != NULL)&&(self y != NULL){
+                    self x = self x / self length * length
+                    self y = self x / self length * length
+                    self length = length
+                }
+                else{return error}
+            }
+        }
+
+        #same but with reading
+        read{
+            # if u read the whole type with i.g. print() 
+            self{
+                return [self x, self y]
+            }
+
+            x{
+                return self x
+            }
+            y{
+                return self y
+            }
+            length{
+                return self length
+            }
+        }
+    }
+
+    # method to recalculate the length of the vector
+    #not accessible because of the “hide” keyword
+
+    hide self!:_length(x:f:32,y:f:32):f:32{
+        return pow((x*x+y*y),0.5) 
+    }
+
+    # the “primary”  keyword after the “self” keyword defines the rank of the attribute
+    # self keyword defined as property  for initialized  version
+    # constants do not necessarily need this, unless it is always defined for the respective instance only
+    # constants that do not have this apply in every instance 
+
+    self primary  ::x:f:32
+    self primary  ::y:f:32
+    self 1::length:f;32
+}
+
+::foo := Vec2(0,2)
+
+::foo2 := Vec2(2,0)
+
+foo.length = 1 # defines the length of the foo as 1. x changes to 0 and y to 1
+foo += foo2 # because foo and foo2 are of the same type we can and them together. only “keyword” rank  attributes can be influenced by operations, so x and y will be added
+print(foo) #returns [2,1] to the console 
+</code>
 </page>
 
 <page data-title="UsefulLinks">

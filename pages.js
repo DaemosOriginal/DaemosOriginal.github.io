@@ -90,3 +90,15 @@ window.onload = () => {
         )
     }
 }
+
+var code = Object.values(document.querySelectorAll("code"))
+code.forEach(
+    e => {
+        let a = e.innerHTML.split("\n")
+        let string = ""
+        for (l of a){
+            if (/*l != ""*/true){l += "<br>"; string += l}
+        }
+        e.innerHTML = `<pre>${string}</pre>`
+    }
+)
