@@ -309,7 +309,7 @@ data-title="Main"
         <li>
             array
             <ul>
-                <li>[type,length]</li>
+                <li>type[length]</li>
             </ul>
         </li>
     </ul>
@@ -318,8 +318,8 @@ data-title="Main"
         <code>::foo:i:8 = 12 # var named foo type integer size 8 bit value 12 aka 00001100 <br></code>
         <code>!:foo2:u:8 = 12</code>
         <p></p>
-        <code>::fooArray:[b;12] = ['H','e','l','l','o',' ','W','o','r','l','d','!'] <br></code>
-        <code>::fooArray2:[b;12] = "Hello World!" <br></code>
+        <code>::fooArray:b[12] = ['H','e','l','l','o',' ','W','o','r','l','d','!'] <br></code>
+        <code>::fooArray2:b[12] = "Hello World!" <br></code>
         <code>::fooArray3:="Hello World!" # array with length of String and type byte / char</code>
 
     <h2>Variables</h2>
@@ -462,6 +462,51 @@ foo.length = 1 # defines the length of the foo as 1. x changes to 0 and y to 1
 foo += foo2 # because foo and foo2 are of the same type we can and them together. only “keyword” rank  attributes can be influenced by operations, so x and y will be added
 print(foo) #returns [2,1] to the console 
 </code>
+
+<h3>data types v2</h3>
+<code>
+!:VecN:type{
+    self(n:f:32[]){
+        if(n != NULL){
+            i = 0
+            for(_ in n){i++}
+            meta n = i
+            free(i)
+
+            for(i in self n){n[i] = Null}
+            for(i in n){
+                self n[i] = n[i]
+                self length += (n[i]*n[i])
+            }
+            self length = pow(self length, 0.5)
+        }
+    self meat{
+        !:n:i:32
+    }
+
+    case{
+
+        write
+        {
+            n[i](n){
+                self n[i] = n
+                self length = 0
+                for(i of n){length += (i*i)}
+                self length = pow(self length, 0.5)
+            }
+        }
+        read{}
+    }
+
+    self primary ::n[2048]
+    self ::length:f:32
+}
+
+#same data type can be diffrent now.
+#this does not alow u to perfortm operations on a VecN yet
+
+</code>
+
 </page>
 
 <page data-title="UsefulLinks">
