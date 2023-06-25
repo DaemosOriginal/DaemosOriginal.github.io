@@ -50,13 +50,12 @@ const galleryConatiner = getGalleryObjects(1);
       }
     });
 
-    // cna now exclude images by name
-
+    // can now exclude images by name
+    var new_array = []
     for(let i = 0; i < e.length; i++){
-        if (e[i].name.split('_').includes('!x')){
-            e.splice(i,1)
-        }
+        if (!e[i].name.split('_').includes('!x')){new_array.push(e[i])}
     }
+    e = new_array
 
     let i = 0;
     e.forEach((image) => {
