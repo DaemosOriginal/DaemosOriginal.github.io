@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YT Container</title>
+</head>
+<body style="background-color:#0f0f0f; margin: 0; padding: 0;">
+    <h1 style="position: absolute; left:50%; translate:-50%; color: rgba(255, 255, 266, .25);font-family: Arial, Helvetica, sans-serif;">YT-Work-Around</h1>
+    <div style="max-width:1200px; height:100vh; left:50%; position:relative; translate:-50%; display: flex; align-items: center;">
+        <iframe id="viewer" src="https://www.youtube.com/embed/VFo8dN70puU" style="width:100%;max-height: 100%; aspect-ratio:16/9;border-width: 0;border-radius: 16px;"></iframe>
+    </div>
+    <script>
+        let viewer = document.getElementById("viewer");
+        let url = window.location.href;
+        url = url.split("#")
+        if (url[1]){
+            viewer.src=url[1];
+            console.log(url[1]);
+        }
+    </script>
+</body>
+</html>
